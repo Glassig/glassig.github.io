@@ -1,6 +1,13 @@
+$shadow-color: rgba(0,0,0,0.19);
+$border-color: rgba(0,0,0,0.32);
+$teal: #26a69a;
+$purple: #7e57c2;
+$blue: #1e88e5;
+$orange: #ff7043;
+
 body {
 	font-family: 'Space Mono', monospace;
-    background-color: #f1f0f2;
+    // background-color: #f1f0f2;
 }
 
 h5, h6 {
@@ -54,24 +61,48 @@ If on a large screen, we want the descriptive text in the collapsible-header, no
 }
 
 #about-box {
-    transition: box-shadow .25s;
     padding: 20px;
     margin: 0.5rem 0 1rem 0;
     border-radius: 2px;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
     .list_of_skills {
         margin-top: 0;
     }
 }
 
-.container{
+.container {
+    .card-panel {
+        box-shadow: 5px 5px 0 $shadow-color;
+    }
+    .card, #about-box {
+        box-shadow: 5px 5px 0 $shadow-color;
+        border: 1px solid $border-color;
+    }
+
     .collapsible.popout {
-        &#edu-coll li {
-            margin-left: 0;
-        }
         &#work-coll li,
-        &#utak-coll li {
-            margin-right: 0;
+        &#edu-coll li,
+        &#utak-coll li,
+        li.active {
+            box-shadow: 5px 5px 0 $shadow-color;
+        }
+        li {
+            margin: 0;
+            &, &.active {
+                border: 1px solid $border-color;
+                border-top: none;
+            }
+            &:first-child,
+            &.active,
+            &.active + li {
+                border-top: 1px solid $border-color;
+            }
+        }
+        &#edu-coll {
+            margin-right: 24px;
+        }
+        &#work-coll,
+        &#utak-coll {
+            margin-left: 24px;
         }
     }
     .collapsible-header {
@@ -95,7 +126,7 @@ If on a large screen, we want the descriptive text in the collapsible-header, no
 }
 
 .valtech_icon {
-    color: #7e57c2;
+    color: $purple;
     margin: 0 1rem 0 0;
     float: left;
     font-size: 1.6rem;
@@ -149,19 +180,19 @@ i.work-icon,
 .work-text,
 #work-coll .detail_header,
 #work-coll li .collapsible-header:hover {
-    color: #7e57c2;
+    color: $purple;
 }
 i.edu-icon,
 .edu-text,
 #edu-coll .detail_header,
 #edu-coll li .collapsible-header:hover {
-    color: #1e88e5;
+    color: $blue;
 }
 i.utak-icon,
 .utak-text,
 #utak-coll .detail_header,
 #utak-coll li .collapsible-header:hover {
-    color: #ff7043;
+    color: $orange;
 }
 
 footer {
