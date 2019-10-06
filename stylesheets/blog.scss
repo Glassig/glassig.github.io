@@ -1,0 +1,87 @@
+#blog {
+    $teal: #26a69a;
+    h4 {
+        margin: 0;
+    }
+    #list_of_posts li {
+        cursor: pointer;
+        &:not(:last-child) {
+            margin-bottom: 2em;
+        }
+        p {
+            margin: 0 0 0 30px;
+            font-style: italic;
+            font-size: 1.2em;
+            span {
+                font-style: normal;
+                &:before {
+                    content: '>';
+                    color: $teal;
+                }
+            }
+        }
+        i {
+            margin-left: 30px;
+        }
+        &:before {
+            content: '{';
+            display: block;
+            color: $teal;
+        }
+        &:after {
+            content: '}';
+            display: block;
+            color: $teal;
+        }
+    }
+    .icon {
+        $size: 36pt;
+        font-size: $size;
+        &:hover {
+            cursor: pointer;
+        }
+        &#home_button {
+            position: absolute;
+            left: calc(50% - (#{$size} / 2));
+            &:hover {
+                $new-size: 40pt;
+                font-size: $new-size;
+                left: calc(50% - (#{$new-size} / 2));
+            }
+        }
+        &.navigation_button {
+            opacity: 0.35;
+            position: fixed;
+            top: calc(50% - (#{$size} / 2));
+            color: black;
+            &:hover {
+                opacity: 1;
+            }
+            &#arrow_back {
+                left: 20px;
+            }
+            &#arrow_forward {
+                transform: rotate(180deg);
+                right: 20px;
+            }
+        }
+    }
+    #blog_list, #blog_content {
+        padding: 20px;
+        margin: 0.5rem 0 1rem 0;
+        border-radius: 2px;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+        p {
+            margin: 0;
+        }
+        blockquote {
+            border-color: $teal;
+        }
+        pre {
+            padding: 12px 8px;
+            border: none;
+            border: 1px solid #e6e8eb;
+            background-color: #f7f9fa;
+        }
+    }
+}

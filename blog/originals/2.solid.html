@@ -1,0 +1,56 @@
+date: 2019-10-01
+title: SOLID!
+subtitle: If I had to learn it, so do you!
+-----
+    <p>
+        SOLID was originally coined by "Uncle Bob"; Robert C. Martin. There are thousands of blog posts about SOLID. Why would I add a drop to the ocean? <i>The short story:</i> it's hard to understand SOLID, and most of them are aimed at backend developers, while I want to talk about it from a frontend perspective (which there are blog posts about, but they are fewer and not as common). Also, I spent a lot of time understanding it before holding a lecture on it, so might as well use that knowledge.
+    </p><p>
+        <i>Long story:</i> I read Clean Code in 2017, and I absolutely loved it. 10/10. You get really motivated to start coding so please have a computer nearby. I was on vacation and had decided to not bring a computer. Big mistake.
+    </p><p>
+        From that book, the only principle I really managed to adapt in my coding was SRP. At the time, I was starting to get into web development, mostly frontend, and I found the others harder to understand and not as applicable. The part above about a lecture is true; me and a colleague was supposed to teach a group of junior developers SOLID, I signed up for it and then spent a lot of time researching it, because I did not get it. While researching it, I wrote a mini essay trying to explain the principles to myself, so I thought I might as well publish it. It is also quite humorous to me that despite the fact that SOLID is aimed at Object Oriented Languages, which is not really what we think of when we think of frontend, I can still find examples and applications for SOLID for frontend. You are welcome.
+    </p><p>
+        <i>Side note:</i> I only had to present S, L, and D. My colleague took I and O. However, we explained it to each other and I helped them write their code examples, so I included those principles in this post.
+    </p>
+</div>
+<h5>S = Single Responsibility Principle</h5>
+<hr>
+<div class="row white" id="blog_content">
+    <blockquote>Every module/class/function should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class. <i>A class should have only one reason to change</i>.</blockquote>
+    <p>
+        SRP was created by Robert C Martin while working for Xerox. He later clarified what it was about: “This principle is about people”. He thinks of the code from a business perspective, saying something like "The COO should not be fired for a change requested by the CTO". I find this explanation kind of hard to relate directly to code. I like using other titles: "The database engineer should not be fired for a change requested by the UX designer". Might sound weird claiming that the database logic could be connected to the design, but if an element that controls the user flows makes calls to the database, it is possible.
+    </p>
+    <p>
+        The other tips I have: try and explain a module/class/function without using the keywords "or", "and", "if", and "but".
+    </p>
+    <p>
+        Let's continue talking about code: all these examples are written using Typescript, because it is what Javascript was supposed to be (fight me). With the exception of SRP, all examples are kind of joke:y, but that is because I like it that way. However, SRP is one of those principles, where it is easier with almost real code example. I also use pseudo-code, because the details are less important and would just be long. The example is over the top, but I can almost guarantee that there are code out there that at some point started like this.
+    </p>
+<pre class="prettyprint">
+export class User {
+    public username: string;
+    public email: string;
+    constructor(private databaseRef: Database) {}
+    public async loginAndInitUser() {
+        // get credentials from user
+        // check if user is in db
+        // if is in db, populate the values and redirect user to main page
+        // if not, return error
+    }
+}
+</pre>
+</div>
+<h5>O = Open-Closed Principle</h5>
+<hr>
+<div class="row white" id="blog_content">
+</div>
+<h5>L = iskov Substitution Principle</h5>
+<hr>
+<div class="row white" id="blog_content">
+</div>
+<h5>I = Interface Segregation Principle</h5>
+<hr>
+<div class="row white" id="blog_content">
+</div>
+<h5>D = Dependency Inversion Principle</h5>
+<hr>
+<div class="row white" id="blog_content">

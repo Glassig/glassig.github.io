@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta content="#26a69a" name="theme-color"><!-- Own css !-->
-    <link href="../style.css" rel="stylesheet" type="text/css"><!-- Compiled and minified CSS -->
+    <link href="../../style.css" rel="stylesheet" type="text/css"><!-- Compiled and minified CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" rel="stylesheet"><!-- Socicon (social icons) -->
     <link href="https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css" rel="stylesheet"><!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><!--Import font-->
     <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet"><!-- Favicon -->
-    <link href="../images/favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <link href="../manifest.json" rel="manifest">
-    <title>Angelina's Blog</title>
+    <link href="../../images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="../../manifest.json" rel="manifest">
+    <title>{{title}}</title>
 </head>
 <body id="blog">
     <header>
         <div class="intro teal lighten-1 z-depth-1">
             <h1 class="grey-text text-lighten-4">&#123;Angelina's Blog&#125;</h1>
-            <h4 class="grey-text text-lighten-4">Or something</h4>
+            <h4 class="grey-text text-lighten-4">{{title}}</h4>
             <div id="navigation">
                 <h5 onclick="window.location = '/'">Main</h5>
                 <h5 onclick="window.location = '/blog/index.html'" class="active">Blog</h5>
@@ -27,22 +27,22 @@
     </header>
     <main>
         <div class="container">
-            <h5>Blog posts</h5>
+            <h5>{{subtitle}}</h5>
+            <p>{{date}}</p>
             <hr>
-            <div class="row white" id="blog_list">
-                <div>
-                    <ul id="list_of_posts">
-                        <li onclick="window.location = 'posts/2.solid.html'">
-                            <p>SOLID! <span> Also for frontends</span></p><i>2019-10-01</i>
-                        </li>
-                        <li onclick="window.location = 'posts/1.rebase.html'">
-                            <p>REBASE! <span> Hide your mistakes</span></p><i>2019-10-01</i>
-                        </li>
-                    </ul>
-                </div>
+            <div class="row white" id="blog_content">
+                {{content}}
             </div>
         </div>
     </main>
+    <i  class="material-icons navigation_button icon"
+        id="arrow_back"
+        onclick="window.location = '{{back}}'"
+    >arrow_back_ios</i>
+    <i  class="material-icons navigation_button icon"
+        id="arrow_forward"
+        onclick="window.location = '{{forward}}'"
+        >arrow_back_ios</i>
     <footer class="page-footer teal lighten-1 grey-text text-lighten-4">
         <div class="row contact-footer">
             <div class="col s4 m4 l4"></div>
@@ -71,5 +71,6 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js">
     </script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 </body>
 </html>

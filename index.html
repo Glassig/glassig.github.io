@@ -37,6 +37,10 @@
                     <a class="btn waves-light" href="cv.pdf">Open</a> <button class="modal-action modal-close waves-effect waves-red btn-flat" type="button">Close</button>
                 </div>
             </div>
+            <div id="navigation">
+                <h5 onclick="window.location = '/'" class="active">Main</h5>
+                <h5 onclick="window.location = '/blog/index.html'">Blog</h5>
+            </div>
         </div>
     </header>
     <main>
@@ -463,10 +467,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js">
     </script>
     <script type="text/javascript">
-                                                   $(document).ready(function(){
-               // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-               $('.modal-trigger').leanModal();
-           });
+        $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();
+        });
     </script>
 </body>
 </html>
