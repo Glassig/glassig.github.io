@@ -32,6 +32,12 @@
             <hr>
             <div class="row white" id="blog_content">
                 
+<style>
+    .container h5:not(:first-child) {
+        text-transform: none;
+        font-variant: small-caps;
+    }
+</style>
     <p>
         SOLID was originally coined by "Uncle Bob"; Robert C. Martin. There are thousands of blog posts about SOLID. Why would I add a drop to the ocean? <i>The short story:</i> it's hard to understand SOLID, and most of them are aimed at backend developers, while I want to talk about it from a frontend perspective (which there are blog posts about, but they are fewer and not as common). Also, I spent a lot of time understanding it before holding a lecture on it, so might as well use that knowledge.
     </p><p>
@@ -50,7 +56,7 @@
         SRP was created by Robert C Martin while working for Xerox. He later clarified what it was about: “This principle is about people”. He thinks of the code from a business perspective, saying something like "The COO should not be fired for a change requested by the CTO". I find this explanation kind of hard to relate directly to code. I like using other titles: "The database engineer should not be fired for a change requested by the UX designer". Might sound weird claiming that the database logic could be connected to the design, but if an element that controls the user flows makes calls to the database, it is possible.
     </p>
     <p>
-        The other tips I have: try and explain a module/class/function without using the keywords "or", "and", "if", and "but".
+        The other tip I have: try and explain a module/class/function without using the keywords "or", "and", "if", and "but".
     </p>
     <p>
         Let's continue talking about code: all these examples are written using Typescript, because it is what Javascript was supposed to be (fight me). With the exception of SRP, all examples are kind of joke:y, but that is because I like it that way. However, SRP is one of those principles, where it is easier with almost real code example. I also use pseudo-code, because the details are less important and would just be long. The example is over the top, but I can almost guarantee that there are code out there that at some point started like this.
@@ -68,14 +74,176 @@ export class User {
     }
 }
 </pre>
+<p>
+    How would you describe this code? The sentence I wrote goes like this:
+    <blockquote>
+        We are asking for login information from the user <b>and</b> then we check if they are in the database, <b>if</b> they are in the database we initiate all the variables <b>and</b> redirect the user to another page, <b>or</b> it returns an error.
+    </blockquote>
+    There are a lot of issues here. If the designer wants changes to the user flow, it will affect the user class. If the database engineer changes how the database works, it will affect the user class. If the security engineer changes how we handle credentials, it affects the user class. Solutions instead would be to make one part of the code handle the databse logic, instead of doing it from the lower level objects. Another class should handle the user flow. Maybe we shouldn't create the User untill they have logged in. As I said, it is an extreme example, but when you want to quickly just create a prototype or similar,this might happen. And then you need to change it, and it will just ruin your day.
+</p>
 </div>
 <h5>O = Open-Closed Principle</h5>
 <hr>
 <div class="row white" id="blog_content">
+    <blockquote>
+        Software entities should be open for extension, but closed for modification.
+    </blockquote>
+    <p>
+        OCP was created by Bertrand Meyer in 1988. The idea here is that each class (or function) should be complete, given the current use-case. Instead of changing the class to fit more use cases, you make it general and abstract, so you can simply add to it. Simply and simply... it is not simple to explain in text. Let's instead look at some example code.
+    </p>
+<pre class="prettyprint">
+class Chips {
+    nutrition: number;
+    weight: number;
+}
+function calcNutrition(chips: Chips) {
+    return chips.nutrition * chips.weight;
+}
+</pre>
+    <p>
+        So, this is fairly simple. We have a class for Chips, and a function that calculates the nutritional value of the chips. It does so correctly, and we have no current bugs or problems with this code. However, the problems arrive when we want to include other food objects, for example: cucumber. We can either change the code in calcNutrition to include either chips or cucumber, and then depending on what it get use a different equation. Or should we write a completly new function for calculating the nutrition, and then in the function that should call on the calculate nutrition function check what the food is? Both breaks the OCP, because we change the equation (or function), instead of extending it. Here is an alternative:
+    </p>
+<pre class="prettyprint">
+interface IFood {
+    ingredients: Ingredient[]; // custom class
+}
+class Chips implements IFood {}
+
+function calculateNutrition(food: IFood) {
+    let nutrition: number = 0;
+    for(let ingredient of food.ingredients) {
+        nutrition += ingredient.nutrition;
+    }
+    return nutrition;
+}
+</pre>
+    <p>
+        (Sidenote: the class Chips can still have the variables for nutrition and weight, but it doesn't matter for the example.) In this code example, we have created an interface for Food, and then made the calculateNutrition function dependent on that interface. Each food object just need to implement the Food interface, and the function will work. This means that calculateNutrition is open for extension; it can accept more and different foods. It is closed for modification though; we should not need to change it, as long as each food object correctly implements the food interface. 
+    </p>
+    <p>
+        A few tips about following OCP: Make member variables private by default and only use <code>get</code> and <code>set</code> when needed. We don't want to depend on variables, it is better to depend on abstractions (more on this later). If there is a change in the variables or how they work, we need to modify all functions and objects that rely on them. Thus, they are open for modification.
+    </p>
 </div>
-<h5>L = iskov Substitution Principle</h5>
+<h5>L = Liskov Substitution Principle</h5>
 <hr>
 <div class="row white" id="blog_content">
+    <blockquote>
+        If <i>S</i> is a subtype of <i>T</i>, then objects of type <i>T</i> may be replaced with objects of type S (i.e. an object of type <i>T</i> may be substituted with any object of a subtype <i>S</i>) without altering any of the desirable properties of the program (correctness, task performed, etc.).
+    </blockquote>
+    <p>
+        I mean, that just makes it absolutely obvious what this is about, right? Right?... I feel like I read that a few times before I went to youtube and hoped someone could explain it. I think I get it now: It is all about <i>Inheritance:</i> "Children should be like their parents for what they inherit". "Children should not override their parents". It is all about having the right abstraction. However, it is not that easy, unfortunately. LSP has several rules that makes it more complicated, because why not. Let's go over them and see if I can explain it.
+    </p>
+    <ul>
+        <li>
+            <i>Contravariance</i> of method arguments.
+            <ul>
+                <li>
+                    Children's input type could be either the same type, or the supertype, of the parent's input type.
+                </li>
+                <li>For example: if a function in the parent accept "Car" as an input, the child can either accept "Car" or maybe "Vehicle".</li>
+                <li>The idea is that the child should accept all the inputs that the parent can accept.</li>
+            </ul>
+        </li>
+        <li>
+            <i>Covariance</i> of the return types.
+            <ul>
+                <li>
+                    Children's return type can be either the same type, or a subtype, of the parent's return type.
+                </li>
+                <li>For example: if the parent returns "Vehicle", the child can return "Vehicle" or maybe "Car".</li>
+                <li>The idea here is that the parent can handle all the different returns that the child can.</li>
+            </ul>
+        </li>
+        <li>
+            No new exceptions, except for subtypes of the parent's exception.
+            <ul>
+                <li>
+                    The parent should be able to handle all errors that a child might throw.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <i>Preconditions</i> should not be strengthened in the child.
+            <ul>
+                <li>
+                    Preconditions are rules that must be true <i>before</i> executing a piece of code.
+                </li>
+                <li>
+                    Essentially, don't add conditionals or other checks in the child.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <i>Postconditions</i> should not be weakened in a child.
+            <ul>
+                <li>
+                    Postconditions are rules that must be true <i>after</i> executing a piece of code.
+                </li>
+                <li>
+                    So, if you say that a function in the parent will return a number that is an integer larger than one, then the child needs to do the same. If the child instead will only return an integer (not necessarily larger than one), it has been weakened.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <i>Invariants</i> of a parent must be the same in a child.
+            <ul>
+                <li>
+                    Invariants mean the rules during the existance of an object.
+                </li>
+                <li>
+                    Basically, if a certain set of conditions results in an error in the parent, the same conditions should result in an error in the child. The child should have the same behaviour.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <i>The History Rule</i>
+            <ul>
+                <li>
+                    The History Rule states that a child cannot modify objects that the parent has as imutable.
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <p>Now that all of that is out of the way, let's check out some code. It should make it more clear. Let's begin with a Duck:</p>
+<pre class="prettyprint">
+export class Duck {
+    public movedDistance: number = 0;
+    constructor(protected duckName: string) {};
+    public get name(): string {
+        return this.duckName;
+    }
+    public duckGo(meters: number) {
+        this.movedDistance += meters;
+    }
+    public talk(): string {
+        return "Quack";
+    }
+}
+</pre>
+    <p>This is a duck. It has a "private" (protected is special, I will explain soon) variable for name, it can walk and it can talk. There is nothing wrong with this code. But, let's say we need to make another class, and it seems kind of similar to Duck, and since Duck is good code, why not just inherit from it?</p>
+<pre class="prettyprint">
+export class ToyDuck extends Duck {
+    private batteryPercentage: number = 100;
+    public duckGo(meters: number) {
+        if (this.batteryPercentage < 5) {
+            throw new LowBatteryException();
+        }
+        this.movedDistance += meters * 2;
+        this.batteryPercentage -= 5;
+    }
+    public set name(value: string) {
+        this.duckName = value;
+    }
+    public talk(name?: string): string {
+        return `Quack quack ${name != null ? name : 'owner'}`;
+    }
+}
+</pre>
+    <p>So, we have a toy duck that is inherited from duck. Both are ducks, right? Nothing wrong with this, right? Actually, let's look a litte closer.</p>
+    <p>In ToyDuck, we have a variable for keeping track of the battery. There is nothing wrong with extending the class, so this is okay. However, in the function for walking (duckGo), we check the battery levels, thus we have strengthened the preconditions. We also throw a new error if the battery levels are too low. The ToyDuck is faster that the duck, so we don't even have the same behaviour (Invariants rule). We break the history rule by allowing for the name to be changed. The reason I used "protected" in Typescript is because it allows for children to change otherwise private variables (if we used the private keyword it would not compile). But this still breaks the LSP rule. The talk-function accepts input, but the parent does not (the questionmark means it is optional). I want to add that the talk function is otherwise okay; we still return a string, it is okay to change what the string is.</p>
+    <p>I used a common saying in regards to LSP for the idea behind this code:</p>
+    <blockquote>If it walks like a duck, talks like a duck, but needs batteries, then you probably have the wrong abstraction.</blockquote>
+    <p>This qoute is really nice. If we think about it, a toy duck is not a duck. We might think they are similar, but really, a toy duck is a toy. Not a duck. This example is a bit obvious, which it might not be when talking about code. Some things will have similar names, but really, they are not alike. If you have to modify the parent in order to inherit from it, maybe you should not inherit from it.</p>
 </div>
 <h5>I = Interface Segregation Principle</h5>
 <hr>

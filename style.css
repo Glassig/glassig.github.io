@@ -314,11 +314,21 @@ footer .footer-copyright div {
 #blog #blog_list blockquote, #blog #blog_content blockquote {
   border-color: #26a69a;
 }
+#blog #blog_list blockquote b, #blog #blog_content blockquote b {
+  color: #26a69a;
+}
 #blog #blog_list pre, #blog #blog_content pre {
   padding: 12px 8px;
   border: none;
   border: 1px solid #e6e8eb;
   background-color: #f7f9fa;
+}
+#blog #blog_list ul, #blog #blog_content ul {
+  padding-inline-start: 40px;
+}
+#blog #blog_list ul li::before, #blog #blog_content ul li::before {
+  content: "{";
+  color: #26a69a;
 }
 
 /*# sourceMappingURL=style.css.map */

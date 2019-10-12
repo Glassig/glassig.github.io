@@ -76,12 +76,22 @@
         }
         blockquote {
             border-color: $teal;
+            b {
+                color: $teal;
+            }
         }
         pre {
             padding: 12px 8px;
             border: none;
             border: 1px solid #e6e8eb;
             background-color: #f7f9fa;
+        }
+        ul {
+            padding-inline-start: 40px;
+            li::before {
+                content: '{';
+                color: $teal;
+            }
         }
     }
 }
