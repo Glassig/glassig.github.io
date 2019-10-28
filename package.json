@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A personal Website for Angelina von Gegerfelt",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "npx sass --watch ./stylesheets/main.scss:style.css",
+    "start": "python -m SimpleHTTPServer 8000"
   },
   "repository": {
     "type": "git",
