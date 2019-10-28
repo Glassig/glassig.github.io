@@ -308,26 +308,26 @@ footer .footer-copyright div {
   border-radius: 2px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
-#blog #blog_list p, #blog #blog_content p {
+#blog #blog_content p {
   margin: 0;
 }
-#blog #blog_list blockquote, #blog #blog_content blockquote {
+#blog #blog_content blockquote {
   border-color: #26a69a;
 }
-#blog #blog_list blockquote b, #blog #blog_content blockquote b {
+#blog #blog_content blockquote b {
   color: #26a69a;
 }
-#blog #blog_list pre, #blog #blog_content pre {
+#blog #blog_content pre {
   padding: 12px 8px;
   border: none;
   border: 1px solid #e6e8eb;
   background-color: #f7f9fa;
 }
-#blog #blog_list ul, #blog #blog_content ul {
+#blog #blog_content ul {
   padding-inline-start: 40px;
 }
-#blog #blog_list ul li::before, #blog #blog_content ul li::before {
-  content: "{";
+#blog #blog_content ul li::before {
+  content: ">";
   color: #26a69a;
 }
 

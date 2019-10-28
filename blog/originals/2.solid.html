@@ -222,7 +222,7 @@ export class ToyDuck extends Duck {
     <p>
         There were too many principles without Uncle Bob, it felt weird there for a second. But, here he is, back at it. You would not be wrong if the one thing you took with you from this blog post is that "Interface good". Interfaces are good. However, as with everything, even good things can be made bad. I guess the second thing you should get from this post is "Abstractions good, if right". If you have the right abstraction, and the right interfaces, your code should be more readable and more open for extension.</p>
     <p>
-        This principle was also created by Robert C. Martin. It means we want to minimize the dependencies between components and create the right abstractions. The idea is that instead of having a few large, complex interfaces, it would be better to have smaller, more abstract interfaces. If the language allows it (I know Typescript does), you can have interfaces that implements another interface, or have a class that inherits from multiple interfaces. It is better with more, consise and clear interfaces, then a few complex. It also allows for an easier time making edits to the code. Speaking of which!
+        Try and keep your interfaces or abstract classes small. If the language allows it (I know Typescript does), you can have interfaces that implements another interface, or have a class that inherits from multiple interfaces. It is better with more, consise and clear interfaces, than a few complex. It also allows for an easier time making edits to the code. Speaking of which!
     </p>
 <pre class="prettyprint">
 interface IElectricalDevice {
@@ -240,7 +240,9 @@ class Headset implements IElectricalDevice {
     threepointfive(): void {};
 }
 </pre>
-    <p>In reality there is nothing wrong with calling a headset for an electrical device, but it makes it a lot more cluttered in code. When implementing the interface "IElectricalDevice", we force the coder to implement a lot more. You might have seen code in similar situations where there will be a comment next to the function "Never used, don't worry" or similar. But, that just means that you are looking at a bunch f unecessary stuff. Right abstraction for your goals is key;</p>
+    <p>
+        In reality there is nothing wrong with calling an headset for an electrical device, but it makes it a lot more cluttered in code. When implementing the interface "IElectricalDevice", we force the coder to implement a lot more than it should. You might have seen code in similar situations where there will be a comment inside the function "Never called, don't worry" or similar. But, that just means that you are looking at a bunch of unecessary stuff. Right abstraction for your goals is key:
+    </p>
 <pre class="prettyprint">
 interface AudioDevice {
     threepointfive(): void;
@@ -255,8 +257,58 @@ interface VideoDevice {
     VGA(): void;
 }
 </pre>
-<p>I don't have that much more to say. My colleague was much better at getting her point across in less words than me.</p>
 </div>
 <h5>D = Dependency Inversion Principle</h5>
 <hr>
 <div class="row white" id="blog_content">
+    <blockquote>
+        A: High level modules should not depend upon low level modules. Both should depend on abstraction. <br>
+        B: Abstractions should not depend upon details. Details should depend upon abstractions.
+    </blockquote>
+    <p>
+        We finish this long treck with a principle written by Uncle Bob, about abstractions. This principle summarized in a few words: it is better to support abstractions. The less a coder need to read in order to understand what is done in each function or class, the better. A general rule of thumb is to consider abstract input vs initiating a specific object.
+    </p>
+<pre class="prettyprint">
+class Cat {
+    public eat() {
+        // consume cat food
+    }
+}
+class Caretaker {
+    private subject: Cat;
+    constructor() {
+        this.subject = new Cat();
+    }
+    public feedYourSubject() {
+        this.subject.eat();
+    }
+}    
+</pre>
+    <p>
+        In this piece of code, we are dependent on the implementation of Cat inside Caretaker. If we want the Caretaker to be able to take care of more kinds of animals than cats, we need to change a lot. Also consider this; let's say you have a fancy schmancy intellisense-similar program inside your editor to give you information about a function or class when you write it. Let's say you initiate a Caretaker object somewhere else in your code, what will that program tell you about Caretaker? Or you are just reading code where Caretaker is initialized, what will you get from it?
+    </p>
+    <blockquote><code>new Caretaker();</code></blockquote>
+    <p>Not a whole lot. You might even think that Caretaker is just doing it's own thing.</p>
+<pre class="prettyprint">
+export interface IAnimal {
+    eat(): void;
+}
+export class Cat implements IAnimal {
+    public eat() {
+        // consume catfood
+    }
+}
+export class Caretaker {
+    constructor(private subject: IAnimal) {} // it just needs to be an animal
+    public feedYourSubject() {
+        this.subject.eat();
+    }
+}
+</pre>
+    <p>
+        In here Caretaker depend on the abstract class IAnimal. We can extend this program by creating more animals that implements IAnimal, and we don't need to change Caretaker when we do. Also, that fancy program:
+    </p>
+    <blockquote><code>new Caretaker(subject: IAnimal);</code></blockquote>
+    <p>
+        That tells us a lot more. We now know what Caretaker depends on, and that tells us a lot more on how it works. And we don't need to go into the file to get it.
+    </p>
