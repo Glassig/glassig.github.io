@@ -1,6 +1,6 @@
 date: 2019-10-01
 title: SOLID!
-subtitle: If I had to learn it, so do you!
+subtitle: Code for readability, always.
 -----
 <style>
     .container h5:not(:first-child) {
@@ -9,13 +9,13 @@ subtitle: If I had to learn it, so do you!
     }
 </style>
     <p>
-        SOLID was originally coined by "Uncle Bob"; Robert C. Martin. There are thousands of blog posts about SOLID. Why would I add a drop to the ocean? <i>The short story:</i> it's hard to understand SOLID, and most of them are aimed at backend developers, while I want to talk about it from a frontend perspective (which there are blog posts about, but they are fewer and not as common). Also, I spent a lot of time understanding it before holding a lecture on it, so might as well use that knowledge.
+        SOLID was originally coined by Robert "Uncle Bob" C. Martin. There are thousands of blog posts about SOLID. Why would I add a drop to the ocean? <i>The short story:</i> it's hard to understand SOLID, and most of them are aimed at backend developers, while I want to talk about it from a frontend perspective (which there are blog posts about, but they are fewer and not as common). Also, I spent a lot of time decoding SOLID before I held a lecture on it, so might as well use that knowledge.
     </p><p>
         <i>Long story:</i> I read Clean Code in 2017, and I absolutely loved it. 10/10. You get really motivated to start coding so please have a computer nearby. I was on vacation and had decided to not bring a computer. Big mistake.
     </p><p>
-        From that book, the only principle I really managed to adapt in my coding was SRP. At the time, I was starting to get into web development, mostly frontend, and I found the others harder to understand and not as applicable. The part above about a lecture is true; me and a colleague was supposed to teach a group of junior developers SOLID, I signed up for it and then spent a lot of time researching it, because I did not get it. While researching it, I wrote a mini essay trying to explain the principles to myself, so I thought I might as well publish it. It is also quite humorous to me that despite the fact that SOLID is aimed at Object Oriented Languages, which is not really what we think of when we think of frontend, I can still find examples and applications for SOLID for frontend. You are welcome.
+        From that book, the only principle I really managed to adapt in my coding was SRP (keep reading). At the time, I was starting to get into web development, mostly frontend, and I found the others harder to understand and not as applicable. The part above about a lecture is true; me and a colleague was supposed to teach a group of junior developers SOLID, I signed up for it and then spent a lot of time researching it, because I did not get it. I wrote a mini essay trying to explain the principles to myself, so I thought I might as well publish it. It is also quite humorous to me that despite the fact that SOLID is aimed at Object Oriented Languages, which is not really what we think of when we think of frontend, I can still find examples and applications for SOLID for frontend. You are welcome.
     </p><p>
-        <i>Side note:</i> I only had to present S, L, and D. My colleague took I and O. However, we explained it to each other and I helped them write their code examples, so I included those principles in this post.
+        <i>Side note:</i> I only had to present S, L, and D. My colleague took O and I. However, we explained it to each other and I helped them write their code examples, so I included those principles in this post. (I have also gotten their consent to use that information.)
     </p>
 </div>
 <h5>S = Single Responsibility Principle</h5>
@@ -23,13 +23,13 @@ subtitle: If I had to learn it, so do you!
 <div class="row white" id="blog_content">
     <blockquote>Every module/class/function should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class. <i>A class should have only one reason to change</i>.</blockquote>
     <p>
-        SRP was created by Robert C Martin while working for Xerox. He later clarified what it was about: “This principle is about people”. He thinks of the code from a business perspective, saying something like "The COO should not be fired for a change requested by the CTO". I find this explanation kind of hard to relate directly to code. I like using other titles: "The database engineer should not be fired for a change requested by the UX designer". Might sound weird claiming that the database logic could be connected to the design, but if an element that controls the user flows makes calls to the database, it is possible.
+        SRP was created by Robert C Martin while working for Xerox. He later clarified what it was about: “This principle is about people”. He thinks of the code from a business perspective, saying something like "the COO should not be fired for a change requested by the CTO". I find this explanation kind of hard to relate directly to code. I like using other titles; "the database engineer should not be fired for a change requested by the UX designer".
     </p>
     <p>
-        The other tip I have: try and explain a module/class/function without using the keywords "or", "and", "if", and "but".
+        I also like to try and explain every module/class/function without using the keywords "or", "and", "if", and "but". If I can't do it naturally, they maybe do too much.
     </p>
     <p>
-        Let's continue talking about code: all these examples are written using Typescript, because it is what Javascript was supposed to be (fight me). With the exception of SRP, all examples are kind of joke:y, but that is because I like it that way. However, SRP is one of those principles, where it is easier with almost real code example. I also use pseudo-code, because the details are less important and would just be long. The example is over the top, but I can almost guarantee that there are code out there that at some point started like this.
+        Let's continue talking about code: all these examples are written using Typescript, because it is what Javascript was supposed to be (fight me). With the exception of SRP, all examples are kind of joke:y, because why not. However, SRP is one of those principles, where it is easier with almost real code example. I also use pseudo-code, because the details are less important and would just be too much. The example is over the top, but I can almost guarantee that there are code out there that at some point started like this.
     </p>
 <pre class="prettyprint">
 export class User {
@@ -49,7 +49,7 @@ export class User {
     <blockquote>
         We are asking for login information from the user <b>and</b> then we check if they are in the database, <b>if</b> they are in the database we initiate all the variables <b>and</b> redirect the user to another page, <b>or</b> it returns an error.
     </blockquote>
-    There are a lot of issues here. If the designer wants changes to the user flow, it will affect the user class. If the database engineer changes how the database works, it will affect the user class. If the security engineer changes how we handle credentials, it affects the user class. Solutions instead would be to make one part of the code handle the databse logic, instead of doing it from the lower level objects. Another class should handle the user flow. Maybe we shouldn't create the User untill they have logged in. As I said, it is an extreme example, but when you want to quickly just create a prototype or similar,this might happen. And then you need to change it, and it will just ruin your day.
+    There are a lot of issues here. If the designer wants changes to the user flow, it will affect the user class. If the database engineer changes how the database works, it will affect the user class. If the security engineer changes how we handle credentials, it affects the user class. Solutions instead would be to make one part of the code handle the databse logic, instead of doing it from the lower level objects. Another class should handle the flow of the page. Maybe we shouldn't create the User until they have logged in. This is an extreme example, but when you want to quickly just create a prototype or similar, this might happen. And then you need to change it, and it will just ruin your day. Try and write code you are okay to go back to.
 </p>
 </div>
 <h5>O = Open-Closed Principle</h5>
@@ -59,7 +59,7 @@ export class User {
         Software entities should be open for extension, but closed for modification.
     </blockquote>
     <p>
-        OCP was created by Bertrand Meyer in 1988. The idea here is that each class (or function) should be complete, given the current use-case. Instead of changing the class to fit more use cases, you make it general and abstract, so you can simply add to it. Simply and simply... it is not simple to explain in text. Let's instead look at some example code.
+        OCP was created by Bertrand Meyer in 1988. The idea here is that each class (or function) should be complete, given an abstract use case. Instead of changing the class to fit more use cases, you make it general and abstract so you can simply add to it. Simply and simply... it is not simple to explain in text. Let's instead look at some example code.
     </p>
 <pre class="prettyprint">
 class Chips {
@@ -71,7 +71,7 @@ function calcNutrition(chips: Chips) {
 }
 </pre>
     <p>
-        So, this is fairly simple. We have a class for Chips, and a function that calculates the nutritional value of the chips. It does so correctly, and we have no current bugs or problems with this code. However, the problems arrive when we want to include other food objects, for example: cucumber. We can either change the code in calcNutrition to include either chips or cucumber, and then depending on what it get use a different equation. Or should we write a completly new function for calculating the nutrition, and then in the function that should call on the calculate nutrition function check what the food is? Both breaks the OCP, because we change the equation (or function), instead of extending it. Here is an alternative:
+        We have a class for Chips, and a function that calculates the nutritional value of the chips. It does so correctly, and we have no current bugs or problems with this code. However, the problems arrive when we want to include other food objects, for example: cucumber. We can either change the code in calcNutrition to include either chips or cucumber, and then depending on what it get use a different equation. Or should we write a completly new function for calculating the nutrition, and then put some logic in the calling function in order to decide which function to call? Both breaks the OCP, because we change the equation (or function), instead of extending it. Here is an alternative:
     </p>
 <pre class="prettyprint">
 interface IFood {
@@ -101,7 +101,7 @@ function calculateNutrition(food: IFood) {
         If <i>S</i> is a subtype of <i>T</i>, then objects of type <i>T</i> may be replaced with objects of type S (i.e. an object of type <i>T</i> may be substituted with any object of a subtype <i>S</i>) without altering any of the desirable properties of the program (correctness, task performed, etc.).
     </blockquote>
     <p>
-        I mean, that just makes it absolutely obvious what this is about, right? Right?... I feel like I read that a few times before I went to youtube and hoped someone could explain it. I think I get it now. It is all about <i>Inheritance;</i> "Children should be like their parents for what they inherit". "Children should not override their parents". It is all about having the right abstraction. However, it is not that easy, unfortunately. LSP has several rules that makes it more complicated, because why not. Let's go over them and see if I can explain it.
+        I mean, that just makes it absolutely obvious what this is about, right? Right?... I feel like I read that a few times before I went to youtube. It is all about <i>Inheritance;</i> "Children should be like their parents for what they inherit". "Children should not override their parents". It is all about having the right abstraction. However, it is not that easy, unfortunately. LSP has several rules that makes it more complicated, because easy is just... easy. Let's go over them and see if I can explain it.
     </p>
     <ul>
         <li>
@@ -213,12 +213,14 @@ export class ToyDuck extends Duck {
     <p>In ToyDuck, we have a variable for keeping track of the battery. There is nothing wrong with extending the class, so this is okay. However, in the function for walking (duckGo), we check the battery levels, thus we have strengthened the preconditions. We also throw a new error if the battery levels are too low. The ToyDuck is faster than the duck, so we don't even have the same behaviour (Invariants rule). We break the history rule by allowing for the name to be changed. The reason I used "protected" in Typescript is because it allows for children to change otherwise private variables (if we used the private keyword it would not compile). So the code works, but it breaks the LSP. The talk-function accepts input, but the parent does not (the questionmark means it is optional). I want to add that the talk function is otherwise okay; we still return a string, it is okay to change what the string is.</p>
     <p>I used a common saying in regards to LSP for the idea behind this code:</p>
     <blockquote>If it walks like a duck, talks like a duck, but needs batteries, then you probably have the wrong abstraction.</blockquote>
-    <p>This qoute is really nice. If we think about it, a toy duck is not a duck. We might think they are similar, but really, a toy duck is a toy. Not a duck. This example is a bit obvious, which it might not be when talking about code. Some things will have similar names, but really, they are not alike. If you have to modify the parent in order to inherit from it, maybe you should not inherit from it at all.</p>
+    <p>This qoute is really nice. If we think about it, a toy duck is not a duck. We might think they are similar, but really, a toy duck is a toy. Not a duck. This example is a bit obvious, which it might not be when talking about the code we do daily. Some things will have similar names, but really, they are not alike. If you have to modify the parent in order to inherit from it, maybe you should not inherit from it at all.</p>
 </div>
 <h5>I = Interface Segregation Principle</h5>
 <hr>
 <div class="row white" id="blog_content">
     <blockquote>No client should be forced to depend on methods it does not use.</blockquote>
+    <p>
+        There were too many principles without Uncle Bob, it felt weird there for a second. But, here he is, back at it. You would not be wrong if the one thing you took with you from this blog post is that "Interface good". Interfaces are good. However, as with everything, even good things can be made bad. I guess the second thing you should get from this post is "Abstractions good, if right". If you have the right abstraction, and the right interfaces, your code should be more readable and more open for extension.</p>
     <p>
         This principle was also created by Robert C. Martin. It means we want to minimize the dependencies between components and create the right abstractions. The idea is that instead of having a few large, complex interfaces, it would be better to have smaller, more abstract interfaces. If the language allows it (I know Typescript does), you can have interfaces that implements another interface, or have a class that inherits from multiple interfaces. It is better with more, consise and clear interfaces, then a few complex. It also allows for an easier time making edits to the code. Speaking of which!
     </p>
@@ -253,7 +255,7 @@ interface VideoDevice {
     VGA(): void;
 }
 </pre>
-<p>I donät have that much more to say. My colleague was much better at getting her point across in less words than me.</p>
+<p>I don't have that much more to say. My colleague was much better at getting her point across in less words than me.</p>
 </div>
 <h5>D = Dependency Inversion Principle</h5>
 <hr>
