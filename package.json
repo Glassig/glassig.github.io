@@ -18,6 +18,9 @@
   },
   "homepage": "https://gegerfelt.io",
   "devDependencies": {
-    "sass": "^1.22.12"
+    "sass": "^1.23.7"
+  },
+  "dependencies": {
+    "materializecss": "^1.0.11"
   }
 }
