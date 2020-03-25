@@ -1,5 +1,23 @@
+@font-face {
+  font-family: "Single Day Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Single Day Regular"), url("SingleDay-Regular.woff") format("woff");
+}
 h1 {
   color: blue;
+}
+
+.doggo {
+  width: 30%;
+  shape-outside: polygon(0% 0%, 100% 0%, 100% 55%, 61% 55%, 32% 100%, 0% 100%);
+  float: left;
+  opacity: 0.2;
+}
+
+p {
+  font-family: "Single Day Regular";
+  margin-top: 25%;
 }
 
 /*# sourceMappingURL=style.css.map */
