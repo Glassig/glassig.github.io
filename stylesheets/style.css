@@ -1,23 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 @font-face {
   font-family: "Single Day Regular";
   font-style: normal;
   font-weight: normal;
   src: local("Single Day Regular"), url("SingleDay-Regular.woff") format("woff");
 }
-h1 {
-  color: blue;
+html,
+body {
+  margin: 0;
+  height: 100%;
 }
 
-.doggo {
-  width: 30%;
-  shape-outside: polygon(0% 0%, 100% 0%, 100% 55%, 61% 55%, 32% 100%, 0% 100%);
+body {
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: "Indie Flower";
+}
+
+#long_doggo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#long_doggo .doggo {
+  position: absolute;
+  right: 50vw;
+  top: 20vh;
+}
+#long_doggo:before {
+  content: " ";
+  display: block;
+  width: 50vw;
+  height: 100%;
   float: left;
-  opacity: 0.2;
+  bottom: 0;
+  shape-outside: polygon(0% 0%, 100% 0%, 100% calc(20vh + 155px), calc(50vw - 95px) calc(20vh + 155px), calc(calc(50vw - 95px) - calc((100vh - calc(20vh + 155px)) / 1.9324964493)) 100%, 0 100%);
 }
-
-p {
-  font-family: "Single Day Regular";
-  margin-top: 25%;
+#long_doggo p {
+  font-size: 32px;
+  margin: 0;
+  padding-top: calc(calc(20vh + 155px) + 30px);
+  display: block;
+  padding-right: 10%;
 }
 
 /*# sourceMappingURL=style.css.map */
