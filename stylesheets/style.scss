@@ -1,24 +1,69 @@
+@use 'sass:math';
 
 @font-face {
-  font-family: 'Single Day Regular';
+  font-family: "Single Day Regular";
   font-style: normal;
   font-weight: normal;
-  src: local('Single Day Regular'), url('SingleDay-Regular.woff') format('woff');
+  src: local("Single Day Regular"), url("SingleDay-Regular.woff") format("woff");
 }
 
-h1 {
-  color: blue;
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+body {
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: 'Indie Flower';
 }
 
-.doggo {
-  width: 30%;
-  // x y, x y , x y ...., (0, 0) is top left corner. increasing to other
-  shape-outside: polygon(0% 0%, 100% 0%, 100% 55%, 61% 55%, 32% 100%, 0% 100%);
-  float: left;
-  opacity: .2;
-}
+#long_doggo {
+  $top_distance: 20vh;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .doggo {
+    // x y, x y , x y ...., (0, 0) is top left corner. increasing to other
+    // shape-outside: url(/images/long_doggo.svg);
+    // shape-margin: 10px;
+    // float: left;
+    position: absolute;
+    right:50vw;
+    top: $top_distance;
+  }
 
-p {
-  font-family: 'Single Day Regular';
-  margin-top: 25%;
+  $doggo_head_height: 155px;
+  $doggo_head_width: 95px;
+
+  $dist_top_and_head: calc(#{$top_distance} + #{$doggo_head_height});
+  $triangle_top_x: calc(50vw - #{$doggo_head_width});
+  $triangle_bottom_width: calc((100vh - #{$dist_top_and_head}) / #{math.tan(62.64deg)});
+  &:before {
+    content: ' ';
+    display: block;
+    width: 50vw;
+    height: 100%;
+    float: left;
+    bottom: 0;
+    shape-outside: polygon(
+      0% 0%,
+      100% 0%,
+      100% $dist_top_and_head,
+      $triangle_top_x $dist_top_and_head,
+      calc(#{$triangle_top_x} - #{$triangle_bottom_width}) 100%,
+      0 100%
+    );
+  }
+
+  p {
+    // font-family: "Single Day Regular";
+    font-size: 32px;
+    margin: 0;
+    padding-top: calc(#{$dist_top_and_head} + 30px);
+    display: block;
+    padding-right: 10%;
+  }
 }
