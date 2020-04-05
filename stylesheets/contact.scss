@@ -1,0 +1,39 @@
+#contact_doggo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+
+  img {
+    position: absolute;
+    left: 35.04%;
+    right: 33.95%;
+    top: -8.4%;
+    bottom: 43.9%;
+    
+    transform: rotate(116.02deg);
+  }
+
+  .social {
+    width: 61px;
+    height: 57px;
+    border-radius: 9px;
+    color: white;
+    font-size: 42px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 57px;
+    margin: 13px;
+
+    &#linkedin {
+      background-color: $blue;
+    }
+    &#email {
+      background-color: $red;
+      line-height: 74px;
+    }
+    &#github {
+      background-color: $black;
+    }
+  }
+}
