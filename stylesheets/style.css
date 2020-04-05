@@ -1,4 +1,59 @@
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+#long_doggo p {
+  font-size: 32px;
+  margin: 0;
+  display: block;
+  padding-right: 10%;
+}
+#long_doggo p .pink {
+  color: #EA1F80;
+}
+#long_doggo p .blue {
+  color: #379AED;
+}
+#long_doggo p .teal {
+  color: #1CD0A5;
+}
+#long_doggo p .red {
+  color: #E50712;
+}
+
+#contact_doggo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+}
+#contact_doggo img {
+  position: absolute;
+  left: 35.04%;
+  right: 33.95%;
+  top: -8.4%;
+  bottom: 43.9%;
+  transform: rotate(116.02deg);
+}
+#contact_doggo .social {
+  width: 61px;
+  height: 57px;
+  border-radius: 9px;
+  color: white;
+  font-size: 42px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 57px;
+  margin: 13px;
+}
+#contact_doggo .social#linkedin {
+  background-color: #379AED;
+}
+#contact_doggo .social#email {
+  background-color: #E50712;
+  line-height: 74px;
+}
+#contact_doggo .social#github {
+  background-color: #24292E;
+}
+
 @font-face {
   font-family: "Single Day Regular";
   font-style: normal;
@@ -37,11 +92,7 @@ body {
   shape-outside: polygon(0% 0%, 100% 0%, 100% calc(20vh + 155px), calc(50vw - 95px) calc(20vh + 155px), calc(calc(50vw - 95px) - calc((100vh - calc(20vh + 155px)) / 1.9324964493)) 100%, 0 100%);
 }
 #long_doggo p {
-  font-size: 32px;
-  margin: 0;
   padding-top: calc(calc(20vh + 155px) + 30px);
-  display: block;
-  padding-right: 10%;
 }
 
 /*# sourceMappingURL=style.css.map */

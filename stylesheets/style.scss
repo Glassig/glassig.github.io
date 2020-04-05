@@ -1,4 +1,7 @@
 @use 'sass:math';
+@import '_colors';
+@import 'text';
+@import 'contact';
 
 @font-face {
   font-family: "Single Day Regular";
@@ -57,13 +60,7 @@ body {
       0 100%
     );
   }
-
   p {
-    // font-family: "Single Day Regular";
-    font-size: 32px;
-    margin: 0;
     padding-top: calc(#{$dist_top_and_head} + 30px);
-    display: block;
-    padding-right: 10%;
   }
 }
