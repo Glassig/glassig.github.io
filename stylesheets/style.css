@@ -22,35 +22,39 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100px;
+  width: 435px;
+  height: 100%;
 }
 #contact_doggo img {
   position: absolute;
-  left: 35.04%;
-  right: 33.95%;
-  top: -8.4%;
-  bottom: 43.9%;
+  top: -300px;
+  left: -95px;
   transform: rotate(116.02deg);
 }
-#contact_doggo .social {
-  width: 61px;
-  height: 57px;
+#contact_doggo #social_buttons {
+  position: absolute;
+  left: 50px;
+  top: 300px;
+}
+#contact_doggo #social_buttons .social {
+  width: 62px;
+  height: 58px;
   border-radius: 9px;
   color: white;
   font-size: 42px;
   text-align: center;
   vertical-align: middle;
-  line-height: 57px;
-  margin: 13px;
+  line-height: 58px;
+  margin: 12px;
 }
-#contact_doggo .social#linkedin {
+#contact_doggo #social_buttons .social#linkedin {
   background-color: #379AED;
 }
-#contact_doggo .social#email {
+#contact_doggo #social_buttons .social#email {
   background-color: #E50712;
   line-height: 74px;
 }
-#contact_doggo .social#github {
+#contact_doggo #social_buttons .social#github {
   background-color: #24292E;
 }
 
