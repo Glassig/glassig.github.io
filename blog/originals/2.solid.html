@@ -1,6 +1,6 @@
 date: 2019-10-01
 title: SOLID!
-subtitle: Code for readability, always.
+subtitle: SOLID Frontend
 -----
 <style>
     .container h5:not(:first-child) {
@@ -9,9 +9,9 @@ subtitle: Code for readability, always.
     }
 </style>
     <p>
-        SOLID was originally coined by Robert "Uncle Bob" C. Martin. There are thousands of blog posts about SOLID. Why would I add a drop to the ocean? <i>The short story:</i> it's hard to understand SOLID, and most of them are aimed at backend developers, while I want to talk about it from a frontend perspective (which there are blog posts about, but they are fewer and not as common). Also, I spent a lot of time decoding SOLID before I held a lecture on it, so might as well share that knowledge. It is also quite humorous to me that right now, SOLID is <i>very</i> relevant for frontend development, despite it usually being considered backend territory. Typescript and the emergance of "object oriented thinking" in frameworks like React has made it something frontend peeps should learn.
+        SOLID is an (mostly considered important) acronym for 5 coding principles and was originally coined by Robert "Uncle Bob" C. Martin. There are thousands of blog posts about SOLID. Why would I add a drop to the ocean? <i>The short story:</i> I signed up to hold a lecture on SOLID, and spent a lot of time decoding it. It is hard to understand SOLID, and most texts about it is aimed at the backend gang while I mainly stay in the frontend zone. I find it quite humorous that right now, SOLID is <i>very</i> relevant for frontend development, despite it usually being considered backend territory. With TypeScript and the emergance of "object oriented thinking" in frameworks like React, SOLID is something frontend peeps should learn.
     </p><p>
-        <i>Side note:</i> I only had to present S, L, and D. My colleague took O and I. However, we explained it to each other and I helped them write their code examples, so I included those principles in this post. (I have also gotten their consent to use that information.)
+        <i>Side note:</i> I only had to present S, L, and D. My colleague took O and I. However, we explained it to each other and helped wrote the code examples together, so I included those principles in this post. (I have also gotten their consent to use that information.)
     </p>
 </div>
 <h5>S = Single Responsibility Principle</h5>
@@ -19,7 +19,7 @@ subtitle: Code for readability, always.
 <div class="row white" id="blog_content">
     <blockquote>Every module/class/function should have responsibility over a single part of the functionality provided by the software, and that responsibility should be entirely encapsulated by the class. <i>A class should have only one reason to change</i>.</blockquote>
     <p>
-        The method I use in order to consider whether or not my code follows SRP is this: I like to try and explain every module/class/function without using the keywords "or", "and", "if", and "but". If I can't do it naturally, they maybe do too much.
+        Don't let a single part of the software do too many things. The method I use in order to consider whether or not my code follows SRP is this: I like to try and explain every module/class/function without using the keywords "or", "and", "if", and "but". If I can't do it naturally, they maybe do too much.
     </p>
     <p>
         Let's continue talking about code: all these examples are written using Typescript, because it is what Javascript was supposed to be (fight me). With the exception of SRP, where I use pseudo-code, because the details are less important and would just be too much. The example is over the top, but I can almost guarantee that there are code out there that at some point started like this.
@@ -40,9 +40,9 @@ export class User {
 <p>
     How would you describe this code? The sentence I wrote goes like this:
     <blockquote>
-        We are asking for login information from the user <b>and</b> then we check if they are in the database, <b>if</b> they are in the database we initiate all the variables <b>and</b> redirect the user to another page, <b>or</b> it returns an error.
+        It is asking for login information from the user <b>and</b> then it checks if they are in the database, <b>if</b> they are in the database it initiates all the variables <b>and</b> redirects the user to another page, <b>or</b> it returns an error.
     </blockquote>
-    There are a lot of issues here. The user handles too much, and login has side-effects you might not know about if you were to call upon it from another file and only reads the method name. I think the over the top example needs no more explanation that <i>it bad</i>, but I encourage you to look at "cleaner" code and see, are there one too many repsonsibilities?
+    There are a lot of issues here. The User class is responsible for talking to a database, store values about the current user and log in the user. The login has side-effects you might not know about if you were to call upon it from another file and only read the method name. I think the over the top example needs no more explanation than <i>it bad</i>, but I encourage you to look at "cleaner" code and see, are there one too many repsonsibilities? It is "easy" to take small shortcuts and have a function or class do just one extra thing.
 </p>
 </div>
 <h5>O = Open-Closed Principle</h5>
@@ -52,7 +52,7 @@ export class User {
         Software entities should be open for extension, but closed for modification.
     </blockquote>
     <p>
-        OCP was created by Bertrand Meyer in 1988. The idea here is that each class (or function) should be complete, given an abstract use case. Instead of changing the class to fit more use cases, you make it general and abstract so you can simply add to it. Simply and simply... it is not simple to explain in text. Let's instead look at some example code.
+        The idea here is that each class (or function or module or...) should be complete, given an abstract use case. Instead of changing the class to fit more use cases, you make it general and abstract so you can simply add to it. Simply and simply... it is not simple to explain in text. Let's instead look at some example code.
     </p>
 <pre class="prettyprint">
 class Chips {
@@ -72,11 +72,9 @@ interface IFood {
 }
 class Chips implements IFood {}
 
-function calculateNutrition(food: IFood) {
-    let nutrition: number = 0;
-    for(let ingredient of food.ingredients) {
-        nutrition += ingredient.nutrition;
-    }
+function calculateNutrition(food: IFood): number {
+    let nutrition = 0;
+    // use the food.ingredients to calculate nutrition
     return nutrition;
 }
 </pre>
@@ -91,7 +89,7 @@ function calculateNutrition(food: IFood) {
         If <i>S</i> is a subtype of <i>T</i>, then objects of type <i>T</i> may be replaced with objects of type S (i.e. an object of type <i>T</i> may be substituted with any object of a subtype <i>S</i>) without altering any of the desirable properties of the program (correctness, task performed, etc.).
     </blockquote>
     <p>
-        I felt like I read that a few times before I went to youtube. It is all about <i>Inheritance;</i> "Children should be like their parents for what they inherit". "Children should not override their parents". It is all about having the right abstraction. However, it is not that easy, unfortunately. LSP has several rules that makes it more complicated, because easy is just... easy. I have tried to summarize them quickly, one day I might make a better job at it.
+        I felt like I read that a few times before I went to youtube. It is all about <i>Inheritance;</i> "Children should be like their parents for what they inherit". "Children should not override their parents". It is all about having the right abstraction. However, it is not that easy, unfortunately. LSP has several rules that makes it more complicated, because easy is just... easy. I have tried to summarize and simplify them, one day I might talk about them in more detail.
     </p>
     <ul>
         <li>

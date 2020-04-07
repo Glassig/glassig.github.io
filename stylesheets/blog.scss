@@ -90,9 +90,14 @@
         }
         ul {
             padding-inline-start: 40px;
-            li::before {
-                content: '>';
-                color: $teal;
+            li {
+                &::before {
+                    content: '>';
+                    color: $teal;
+                }
+                &:not(:last-child) {
+                    margin-bottom: 10px;
+                }
             }
         }
     }

@@ -22,6 +22,7 @@
     "sass": "^1.23.7"
   },
   "dependencies": {
+    "materialize-css": "^1.0.0-rc.2",
     "materializecss": "^1.0.11"
   }
 }

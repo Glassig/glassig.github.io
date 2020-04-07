@@ -330,5 +330,8 @@ footer .footer-copyright div {
   content: ">";
   color: #26a69a;
 }
+#blog #blog_content ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
 
 /*# sourceMappingURL=style.css.map */
