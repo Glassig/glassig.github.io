@@ -21,22 +21,34 @@
     <meta content="#26a69a" name="theme-color" />
     <!-- Primary Meta Tags -->
     <title>Angelina von Gegerfelt</title>
-    <meta name="title" content="Angelina von Gegerfelt">
-    <meta name="description" content="Just another webdev living in Stockholm.">
+    <meta name="title" content="Angelina von Gegerfelt" />
+    <meta
+      name="description"
+      content="Just another webdev living in Stockholm."
+    />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gegerfelt.io/">
-    <meta property="og:title" content="Angelina von Gegerfelt">
-    <meta property="og:description" content="Just another webdev living in Stockholm.">
-    <meta property="og:image" content="https://gegerfelt.io/images/card.png">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gegerfelt.io/" />
+    <meta property="og:title" content="Angelina von Gegerfelt" />
+    <meta
+      property="og:description"
+      content="Just another webdev living in Stockholm."
+    />
+    <meta property="og:image" content="https://gegerfelt.io/images/card.png" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://gegerfelt.io/">
-    <meta property="twitter:title" content="Angelina von Gegerfelt">
-    <meta property="twitter:description" content="Just another webdev living in Stockholm.">
-    <meta property="twitter:image" content="https://gegerfelt.io/images/card.png">
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://gegerfelt.io/" />
+    <meta property="twitter:title" content="Angelina von Gegerfelt" />
+    <meta
+      property="twitter:description"
+      content="Just another webdev living in Stockholm."
+    />
+    <meta
+      property="twitter:image"
+      content="https://gegerfelt.io/images/card.png"
+    />
 
     <link href="stylesheets/style.css" rel="stylesheet" type="text/css" />
     <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -103,27 +115,49 @@
           stroke-miterlimit="10"
         />
       </svg>
+      <div id="speech_bubble">
+        <img class="speech" src="/images/speech.svg" />
+        <p>Hi!</p>
+      </div>
       <div id="personal_letter">
-        <p>My name is <span class="pink">Angelina</span> and I am a <span class="teal">frontend webdev</span> working in Stockholm, Sweden.</p>
         <p>
-        I currently work as a consultant, and earlier I worked as a developer at a startup.</p>
+          My name is <span class="pink">Angelina</span> and I am a
+          <span class="teal">frontend webdev</span> working in Stockholm,
+          Sweden.
+        </p>
         <p>
-        I have a <span class="teal">Bachelor (and a “Civilingenjör”) in Computer Science</span>, with a Master of Science in <span class="teal">Human-Computer Interaction</span>, both from <span class="blue">The Royal Institute of Technology</span>.</p>
+          I currently work as a consultant, and earlier I worked as a developer
+          at a startup.
+        </p>
         <p>
-        In my spare time I work on my coding projects, I try and redesign this website, play <span class="red">DnD</span> with my friends, go out on adventures, and visit my parents in <span class="orange">Spain</span>.</p>
+          I have a
+          <span class="teal"
+            >Bachelor (and a “Civilingenjör”) in Computer Science</span
+          >, with a Master of Science in
+          <span class="teal">Human-Computer Interaction</span>, both from
+          <span class="blue">The Royal Institute of Technology</span>.
+        </p>
         <p>
-        If you want to talk,<br>
-        I will never say no to <span class="pink">ice cream</span>!
+          In my spare time I work on my coding projects, I try and redesign this
+          website, play <span class="red">DnD</span> with my friends, go out on
+          adventures, and visit my parents in <span class="orange">Spain</span>.
+        </p>
+        <p>
+          If you wanna chat,<br />
+          I will never say no to <span class="pink">ice cream</span>!
         </p>
       </div>
     </div>
     <div id="contact_doggo">
-      <img src="/images/short_doggo.svg"/>
+      <img id="short_doggo" src="/images/short_doggo.svg" />
+      <img class="speech" src="/images/speech.svg" />
       <div id="social_buttons">
-      <div class="social" id="linkedin">Li</div>
-      <div class="social" id="email">@</div>
-      <div class="social" id="github">GH</div>
+        <a class="social" id="linkedin" href="https://se.linkedin.com/in/angelina-vg">Li</a>
+        <a class="social" id="email" href="mailto:angelina.v.gegerfelt@gmail.com">@</a>
+        <a class="social" id="github" href="https://github.com/Glassig">GH</a>
+      </div>
     </div>
-    </div>
+    <div id="hanging_doggo"></div>
+    <script src="app.js"></script>
   </body>
 </html>
