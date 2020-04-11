@@ -60,7 +60,7 @@ body {
       0 100%
     );
   }
-  p {
-    padding-top: calc(#{$dist_top_and_head} + 30px);
+  div {
+    padding-top: $dist_top_and_head;
   }
 }

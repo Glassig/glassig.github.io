@@ -1,23 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
-#long_doggo p {
-  font-size: 32px;
+#long_doggo div {
   margin: 0;
   display: block;
   padding-right: 10%;
 }
-#long_doggo p .pink {
+#long_doggo div .pink {
   color: #EA1F80;
 }
-#long_doggo p .blue {
+#long_doggo div .blue {
   color: #379AED;
 }
-#long_doggo p .teal {
+#long_doggo div .teal {
   color: #1CD0A5;
 }
-#long_doggo p .red {
+#long_doggo div .red {
   color: #E50712;
 }
+#long_doggo div .orange {
+  color: #FF9900;
+}
 
+@media (max-width: 1280px) {
+  #long_doggo p {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+@media (min-width: 1281px) {
+  #long_doggo p {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
 #contact_doggo {
   position: absolute;
   top: 0;
@@ -95,8 +109,8 @@ body {
   bottom: 0;
   shape-outside: polygon(0% 0%, 100% 0%, 100% calc(20vh + 155px), calc(50vw - 95px) calc(20vh + 155px), calc(calc(50vw - 95px) - calc((100vh - calc(20vh + 155px)) / 1.9324964493)) 100%, 0 100%);
 }
-#long_doggo p {
-  padding-top: calc(calc(20vh + 155px) + 30px);
+#long_doggo div {
+  padding-top: calc(20vh + 155px);
 }
 
 /*# sourceMappingURL=style.css.map */

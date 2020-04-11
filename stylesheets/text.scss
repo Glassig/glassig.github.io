@@ -1,7 +1,6 @@
 
-#long_doggo p {
+#long_doggo div {
   // font-family: "Single Day Regular";
-  font-size: 32px;
   margin: 0;
   display: block;
   padding-right: 10%;
@@ -17,5 +16,21 @@
   }
   .red {
     color: $red;
+  }
+  .orange {
+    color: $orange;
+  }
+}
+
+@media (max-width: 1280px) {
+  #long_doggo p {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+@media (min-width: 1281px) {
+  #long_doggo p {
+    font-size: 32px;
+    line-height: 40px;
   }
 }
