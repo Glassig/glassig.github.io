@@ -2,14 +2,6 @@
 @import '_colors';
 @import 'text';
 @import 'contact';
-
-@font-face {
-  font-family: "Single Day Regular";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Single Day Regular"), url("SingleDay-Regular.woff") format("woff");
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 html,
@@ -92,7 +84,7 @@ body {
 #hanging_doggo {
   position: absolute;
   content: url("/images/short_doggo.svg");
-  top: -30px;
+  top: -25px;
   right: -230px;
   transform: scaleX(-1) rotate(45deg);
 }
