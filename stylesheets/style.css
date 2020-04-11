@@ -1,37 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
-#long_doggo div {
-  margin: 0;
-  display: block;
-  padding-right: 10%;
+#long_doggo p {
+  font-size: inherit;
+  margin: 0.75em 0 0.75em 20px;
 }
-#long_doggo div .pink {
+#long_doggo p .pink {
   color: #EA1F80;
 }
-#long_doggo div .blue {
+#long_doggo p .blue {
   color: #379AED;
 }
-#long_doggo div .teal {
+#long_doggo p .teal {
   color: #1CD0A5;
 }
-#long_doggo div .red {
+#long_doggo p .red {
   color: #E50712;
 }
-#long_doggo div .orange {
+#long_doggo p .orange {
   color: #FF9900;
 }
 
-@media (max-width: 1280px) {
-  #long_doggo p {
-    font-size: 24px;
-    line-height: 30px;
-  }
-}
-@media (min-width: 1281px) {
-  #long_doggo p {
-    font-size: 32px;
-    line-height: 40px;
-  }
-}
 #contact_doggo {
   position: absolute;
   top: 0;
@@ -39,37 +26,54 @@
   width: 435px;
   height: 100%;
 }
-#contact_doggo img {
+#contact_doggo img#short_doggo {
   position: absolute;
   top: -300px;
   left: -95px;
-  transform: rotate(116.02deg);
+  transform: rotate(116deg);
+}
+#contact_doggo img.speech {
+  position: absolute;
+  top: 250px;
+  left: calc(62px * 2 - 18px);
 }
 #contact_doggo #social_buttons {
   position: absolute;
-  left: 50px;
+  left: calc(62px - 12px);
   top: 300px;
 }
-#contact_doggo #social_buttons .social {
+#contact_doggo #social_buttons a.social {
   width: 62px;
   height: 58px;
-  border-radius: 9px;
-  color: white;
-  font-size: 42px;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 58px;
   margin: 12px;
+  font-family: "Indie Flower";
+  font-size: 42px;
+  color: white;
+  text-align: center;
+  line-height: 58px;
+  border-radius: 9px;
+  border: none;
+  display: block;
+  text-decoration: none;
 }
-#contact_doggo #social_buttons .social#linkedin {
+#contact_doggo #social_buttons a.social#linkedin {
   background-color: #379AED;
 }
-#contact_doggo #social_buttons .social#email {
+#contact_doggo #social_buttons a.social#linkedin:active, #contact_doggo #social_buttons a.social#linkedin:hover {
+  background-color: #1481dd;
+}
+#contact_doggo #social_buttons a.social#email {
   background-color: #E50712;
   line-height: 74px;
 }
-#contact_doggo #social_buttons .social#github {
+#contact_doggo #social_buttons a.social#email:active, #contact_doggo #social_buttons a.social#email:hover {
+  background-color: #b4050e;
+}
+#contact_doggo #social_buttons a.social#github {
   background-color: #24292E;
+}
+#contact_doggo #social_buttons a.social#github:active, #contact_doggo #social_buttons a.social#github:hover {
+  background-color: #515c67;
 }
 
 @font-face {
@@ -109,8 +113,41 @@ body {
   bottom: 0;
   shape-outside: polygon(0% 0%, 100% 0%, 100% calc(20vh + 155px), calc(50vw - 95px) calc(20vh + 155px), calc(calc(50vw - 95px) - calc((100vh - calc(20vh + 155px)) / 1.9324964493)) 100%, 0 100%);
 }
-#long_doggo div {
+#long_doggo div#personal_letter {
   padding-top: calc(20vh + 155px);
+  margin: 0;
+  display: block;
+  padding-right: 10%;
+  font-size: 32px;
+}
+#long_doggo div#speech_bubble {
+  position: relative;
+  left: 50vw;
+  top: 20vh;
+}
+#long_doggo div#speech_bubble img {
+  position: absolute;
+  width: 30px;
+  display: block;
+  top: 96px;
+  left: 10px;
+  transform: rotate(-163deg);
+}
+#long_doggo div#speech_bubble p {
+  position: absolute;
+  left: 40px;
+  top: 68px;
+  margin-top: 0;
+  font-size: 36px;
+  transform: rotate(-15deg);
+}
+
+#hanging_doggo {
+  position: absolute;
+  content: url("/images/short_doggo.svg");
+  top: -30px;
+  right: -230px;
+  transform: scaleX(-1) rotate(45deg);
 }
 
 /*# sourceMappingURL=style.css.map */
