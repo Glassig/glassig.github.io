@@ -1,0 +1,29 @@
+@mixin for-phone {
+  @media (max-width: 750px) { @content; }
+}
+@mixin for-desktop {
+  @media (min-width: 751px) { @content; }
+}
+
+@mixin main-doggo-shape($top_distance, $right_offset, $height: 100%) {
+  $width: calc(100vw - #{$right_offset});
+  $dist_top_and_head: calc(#{$top_distance} + #{$doggo_head_height});
+  $triangle_top_x: calc(#{$width} - #{$doggo_head_width});
+  $triangle_bottom_width: calc((100vh - #{$dist_top_and_head}) / #{math.tan(62.64deg)});
+  #main_doggo:before {
+    content: ' ';
+    display: block;
+    width: $width;
+    height: #{$height};
+    float: left;
+    bottom: 0;
+    shape-outside: polygon(
+      0% 0%,
+      100% 0%,
+      100% $dist_top_and_head,
+      $triangle_top_x $dist_top_and_head,
+      calc(#{$triangle_top_x} - #{$triangle_bottom_width}) 100%,
+      0 100%
+    );
+  }
+}

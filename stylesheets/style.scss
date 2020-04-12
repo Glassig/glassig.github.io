@@ -1,97 +1,123 @@
 @use 'sass:math';
 @import '_colors';
+@import '_mixins';
 @import 'text';
 @import 'contact';
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-
-// @font-face {
-//   font-family: "Indie_Flower";
-//   font-style: normal;
-//   font-weight: normal;
-//   src: local("Indie Flower Regular"), url("IndieFlower-Regular.ttf") format("ttf");
-// }
+// @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+$doggo_head_height: 155px;
+$doggo_head_width: 95px;
 
 html,
 body {
   margin: 0;
   height: 100%;
 }
-body {
-  box-sizing: border-box;
-  overflow: hidden;
-  font-family: 'Indie Flower';
-}
 
-#long_doggo {
+@include for-desktop {
+  body {
+    box-sizing: border-box;
+    overflow: hidden;
+  }
   $top_distance: 20vh;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  .doggo {
-    position: absolute;
-    right:50vw;
-    top: $top_distance;
-  }
-
-  $doggo_head_height: 155px;
-  $doggo_head_width: 95px;
-
+  $right_offset: 50vw;
   $dist_top_and_head: calc(#{$top_distance} + #{$doggo_head_height});
-  $triangle_top_x: calc(50vw - #{$doggo_head_width});
-  $triangle_bottom_width: calc((100vh - #{$dist_top_and_head}) / #{math.tan(62.64deg)});
-  &:before {
-    content: ' ';
-    display: block;
-    width: 50vw;
-    height: 100%;
-    float: left;
-    bottom: 0;
-    shape-outside: polygon(
-      0% 0%,
-      100% 0%,
-      100% $dist_top_and_head,
-      $triangle_top_x $dist_top_and_head,
-      calc(#{$triangle_top_x} - #{$triangle_bottom_width}) 100%,
-      0 100%
-    );
-  }
-  div#personal_letter {
-    padding-top: $dist_top_and_head;
-    margin: 0;
-    display: block;
-    padding-right: 10%;
-    font-size: 32px;
-  }
-  div#speech_bubble {
+  @include main-doggo-shape($top_distance, $right_offset);
+  #main_doggo {
     position: relative;
-    left: 50vw;
-    top: #{$top_distance};
-    img {
+    width: 100%;
+    height: 100%;
+    .long_doggo {
       position: absolute;
-      width: 30px;
-      display: block;
-      top: 96px;
-      left: 10px;
-      // top: calc(#{$top_distance} + #{$doggo_head_height} / 2);
-      transform: rotate(-163deg);
+      content: url("/images/doggo.svg");
+      right: #{$right_offset};
+      top: $top_distance;
     }
-    p {
+
+    div#personal_letter {
+      padding-top: $dist_top_and_head;
+      margin: 0;
+      display: block;
+      padding-right: 10%;
+      font-size: 32px;
+    }
+    div#speech_bubble {
+      position: relative;
+      left: $right_offset;
+      top: $top_distance;
+      img {
+        position: absolute;
+        width: 30px;
+        display: block;
+        top: 96px;
+        left: 10px;
+        transform: rotate(-163deg);
+      }
+      p {
+        position: absolute;
+        left: 40px;
+        top: 68px;
+        margin-top:0;
+        font-size: 36px;
+        transform: rotate(-15deg);
+      }
+    }
+  }
+
+  #hanging_doggo {
+    position: absolute;
+    content: url("/images/short_doggo.svg");
+    top: -25px;
+    right: -230px;
+    transform: scaleX(-1) rotate(45deg);
+  }
+}
+
+@include for-phone {
+  body {
+    overflow-x: hidden;
+  }
+  $top_distance: 25px;
+  $right_offset: 50vw;
+  $dist_top_and_head: calc(#{$top_distance} + #{$doggo_head_height});
+  @include main-doggo-shape($top_distance, $right_offset, 100vh);
+  #main_doggo {
+    position: relative;
+    width: 100%;
+    .long_doggo {
       position: absolute;
-      left: 40px;
-      top: 68px;
-      margin-top:0;
-      font-size: 36px;
-      transform: rotate(-15deg);
-      // left: 500px;
-      // top: 40px;
+      content: url("/images/short_doggo.svg");
+      right: $right_offset;
+      top: $top_distance;
+    }
+
+    div#personal_letter {
+      padding-top: $dist_top_and_head;
+      margin: 0;
+      display: block;
+      padding-right: 10%;
+      font-size: 24px;
+    }
+    div#speech_bubble {
+      position: relative;
+      left: calc(100vw - #{$right_offset});
+      top: #{$top_distance};
+      img {
+        position: absolute;
+        width: 30px;
+        display: block;
+        top: 96px;
+        left: 10px;
+        transform: rotate(-163deg);
+      }
+      p {
+        position: absolute;
+        left: 40px;
+        top: 68px;
+        margin-top:0;
+        font-size: 36px;
+        transform: rotate(-15deg);
+      }
     }
   }
 }
 
-#hanging_doggo {
-  position: absolute;
-  content: url("/images/short_doggo.svg");
-  top: -25px;
-  right: -230px;
-  transform: scaleX(-1) rotate(45deg);
-}

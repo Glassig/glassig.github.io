@@ -9,6 +9,10 @@ function isOutside() {
 }
 
 const makeSureTextIsVisible = () => {
+  if ((document.documentElement.clientWidth || window.innerWidth) <= 750) {
+    if (element.style.fontSize != "24px") element.style.fontSize = "24px";
+    return;
+  }
   let originalSize = getComputedStyle(element).fontSize;
   let size = originalSize.match(/\d+/g).map(Number)[0];
   while (!isOutside() && size < 32) {
