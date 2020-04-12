@@ -1,27 +1,14 @@
 #contact_doggo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 435px;
-  height: 100%;
-
   img#short_doggo { // size width: 380px height: 572px
     position: absolute;
-    top: -320px;
-    left: -95px;
-    transform: rotate(116deg);
   }
   $social_width: 62px;
   $social_height: 58px;
   img.speech { // 47px x 47px
     position: absolute;
-    top: 225px;
-    left: calc(#{$social_width} * 2 - 18px);
   }
   #social_buttons {
     position: absolute;
-    left: calc(#{$social_width} - 12px); // margin
-    top: 275px;
 
     a.social {
       width: $social_width;
@@ -34,7 +21,6 @@
       line-height: $social_height;
       border-radius: 9px;
       border: none;
-      display: block;
       text-decoration: none;
 
       &#linkedin {
@@ -58,4 +44,66 @@
       }
     }
   }
+}
+@include for-desktop {
+  #contact_doggo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 435px;
+    height: 100%;
+
+    img#short_doggo { // size width: 380px height: 572px
+      top: -320px;
+      left: -95px;
+      transform: rotate(116deg);
+    }
+    $social_width: 62px;
+    $social_height: 58px;
+    img.speech { // 47px x 47px
+      top: 225px;
+      left: calc(#{$social_width} * 2 - 18px);
+    }
+    #social_buttons {
+      left: calc(#{$social_width} - 12px); // margin
+      top: 275px;
+      a.social {
+        display: block;
+        width: $social_width;
+        height: $social_height;
+      }
+    }
+  }
+}
+@include for-phone {
+  #contact_doggo {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    img#short_doggo { // size width: 380px height: 572px
+      // something
+      transform: scaleX(-1) rotate(32deg);
+      top: -80px;
+      left: 50vw;
+    }
+    $social_width: 62px;
+    $social_height: 58px;
+    img.speech { // 47px x 47px
+      top: 200px;
+      left: calc(50vw - 35px);
+      transform: rotate(-30deg);
+    }
+    #social_buttons {
+      left: calc(50vw - (270px / 2)); // margin
+      top: 275px;
+      display: flex;
+      a.social {
+        display: inline-block;
+        width: $social_width;
+        height: $social_height;
+      }
+    }
+  } 
 }

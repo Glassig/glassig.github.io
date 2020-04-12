@@ -1,5 +1,14 @@
+@font-face {
+  font-family: "Indie Flower";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Indie Flower Regular"), url("IndieFlower-Regular.ttf") format("truetype");
+}
 
-#long_doggo p {
+body {
+  font-family: 'Indie Flower';
+}
+#main_doggo p {
   font-size: inherit;
   margin: 0.75em 0 0.75em 20px;
   .pink {
@@ -18,17 +27,3 @@
     color: $orange;
   }
 }
-
-
-// @media (max-width: 1280px) {
-//   #long_doggo p {
-//     font-size: 24px;
-//     line-height: 30px;
-//   }
-// }
-// @media (min-width: 1281px) {
-//   #long_doggo p {
-//     font-size: 32px;
-//     line-height: 40px;
-//   }
-// }

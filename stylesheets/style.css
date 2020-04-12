@@ -1,46 +1,41 @@
-@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
-#long_doggo p {
+@font-face {
+  font-family: "Indie Flower";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Indie Flower Regular"), url("IndieFlower-Regular.ttf") format("truetype");
+}
+body {
+  font-family: "Indie Flower";
+}
+
+#main_doggo p {
   font-size: inherit;
   margin: 0.75em 0 0.75em 20px;
 }
-#long_doggo p .pink {
+#main_doggo p .pink {
   color: #EA1F80;
 }
-#long_doggo p .blue {
+#main_doggo p .blue {
   color: #379AED;
 }
-#long_doggo p .teal {
+#main_doggo p .teal {
   color: #1CD0A5;
 }
-#long_doggo p .red {
+#main_doggo p .red {
   color: #E50712;
 }
-#long_doggo p .orange {
+#main_doggo p .orange {
   color: #FF9900;
 }
 
-#contact_doggo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 435px;
-  height: 100%;
-}
 #contact_doggo img#short_doggo {
   position: absolute;
-  top: -320px;
-  left: -95px;
-  transform: rotate(116deg);
 }
 #contact_doggo img.speech {
   position: absolute;
-  top: 225px;
-  left: calc(62px * 2 - 18px);
 }
 #contact_doggo #social_buttons {
   position: absolute;
-  left: calc(62px - 12px);
-  top: 275px;
 }
 #contact_doggo #social_buttons a.social {
   width: 62px;
@@ -53,7 +48,6 @@
   line-height: 58px;
   border-radius: 9px;
   border: none;
-  display: block;
   text-decoration: none;
 }
 #contact_doggo #social_buttons a.social#linkedin {
@@ -76,72 +70,184 @@
   background-color: #515c67;
 }
 
+@media (min-width: 751px) {
+  #contact_doggo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 435px;
+    height: 100%;
+  }
+  #contact_doggo img#short_doggo {
+    top: -320px;
+    left: -95px;
+    transform: rotate(116deg);
+  }
+  #contact_doggo img.speech {
+    top: 225px;
+    left: calc(62px * 2 - 18px);
+  }
+  #contact_doggo #social_buttons {
+    left: calc(62px - 12px);
+    top: 275px;
+  }
+  #contact_doggo #social_buttons a.social {
+    display: block;
+    width: 62px;
+    height: 58px;
+  }
+}
+@media (max-width: 750px) {
+  #contact_doggo {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  #contact_doggo img#short_doggo {
+    transform: scaleX(-1) rotate(32deg);
+    top: -80px;
+    left: 50vw;
+  }
+  #contact_doggo img.speech {
+    top: 200px;
+    left: calc(50vw - 35px);
+    transform: rotate(-30deg);
+  }
+  #contact_doggo #social_buttons {
+    left: calc(50vw - (270px / 2));
+    top: 275px;
+    display: flex;
+  }
+  #contact_doggo #social_buttons a.social {
+    display: inline-block;
+    width: 62px;
+    height: 58px;
+  }
+}
 html,
 body {
   margin: 0;
   height: 100%;
 }
 
-body {
-  box-sizing: border-box;
-  overflow: hidden;
-  font-family: "Indie Flower";
-}
+@media (min-width: 751px) {
+  body {
+    box-sizing: border-box;
+    overflow: hidden;
+  }
 
-#long_doggo {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-#long_doggo .doggo {
-  position: absolute;
-  right: 50vw;
-  top: 20vh;
-}
-#long_doggo:before {
-  content: " ";
-  display: block;
-  width: 50vw;
-  height: 100%;
-  float: left;
-  bottom: 0;
-  shape-outside: polygon(0% 0%, 100% 0%, 100% calc(20vh + 155px), calc(50vw - 95px) calc(20vh + 155px), calc(calc(50vw - 95px) - calc((100vh - calc(20vh + 155px)) / 1.9324964493)) 100%, 0 100%);
-}
-#long_doggo div#personal_letter {
-  padding-top: calc(20vh + 155px);
-  margin: 0;
-  display: block;
-  padding-right: 10%;
-  font-size: 32px;
-}
-#long_doggo div#speech_bubble {
-  position: relative;
-  left: 50vw;
-  top: 20vh;
-}
-#long_doggo div#speech_bubble img {
-  position: absolute;
-  width: 30px;
-  display: block;
-  top: 96px;
-  left: 10px;
-  transform: rotate(-163deg);
-}
-#long_doggo div#speech_bubble p {
-  position: absolute;
-  left: 40px;
-  top: 68px;
-  margin-top: 0;
-  font-size: 36px;
-  transform: rotate(-15deg);
-}
+  #main_doggo:before {
+    content: " ";
+    display: block;
+    width: calc(100vw - 50vw);
+    height: 100%;
+    float: left;
+    bottom: 0;
+    shape-outside: polygon(0% 0%, 100% 0%, 100% calc(20vh + 155px), calc(calc(100vw - 50vw) - 95px) calc(20vh + 155px), calc(calc(calc(100vw - 50vw) - 95px) - calc((100vh - calc(20vh + 155px)) / 1.9324964493)) 100%, 0 100%);
+  }
 
-#hanging_doggo {
-  position: absolute;
-  content: url("/images/short_doggo.svg");
-  top: -25px;
-  right: -230px;
-  transform: scaleX(-1) rotate(45deg);
+  #main_doggo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  #main_doggo .long_doggo {
+    position: absolute;
+    content: url("/images/doggo.svg");
+    right: 50vw;
+    top: 20vh;
+  }
+  #main_doggo div#personal_letter {
+    padding-top: calc(20vh + 155px);
+    margin: 0;
+    display: block;
+    padding-right: 10%;
+    font-size: 32px;
+  }
+  #main_doggo div#speech_bubble {
+    position: relative;
+    left: 50vw;
+    top: 20vh;
+  }
+  #main_doggo div#speech_bubble img {
+    position: absolute;
+    width: 30px;
+    display: block;
+    top: 96px;
+    left: 10px;
+    transform: rotate(-163deg);
+  }
+  #main_doggo div#speech_bubble p {
+    position: absolute;
+    left: 40px;
+    top: 68px;
+    margin-top: 0;
+    font-size: 36px;
+    transform: rotate(-15deg);
+  }
+
+  #hanging_doggo {
+    position: absolute;
+    content: url("/images/short_doggo.svg");
+    top: -25px;
+    right: -230px;
+    transform: scaleX(-1) rotate(45deg);
+  }
+}
+@media (max-width: 750px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  #main_doggo:before {
+    content: " ";
+    display: block;
+    width: calc(100vw - 50vw);
+    height: 100vh;
+    float: left;
+    bottom: 0;
+    shape-outside: polygon(0% 0%, 100% 0%, 100% calc(25px + 155px), calc(calc(100vw - 50vw) - 95px) calc(25px + 155px), calc(calc(calc(100vw - 50vw) - 95px) - calc((100vh - calc(25px + 155px)) / 1.9324964493)) 100%, 0 100%);
+  }
+
+  #main_doggo {
+    position: relative;
+    width: 100%;
+  }
+  #main_doggo .long_doggo {
+    position: absolute;
+    content: url("/images/short_doggo.svg");
+    right: 50vw;
+    top: 25px;
+  }
+  #main_doggo div#personal_letter {
+    padding-top: calc(25px + 155px);
+    margin: 0;
+    display: block;
+    padding-right: 10%;
+    font-size: 24px;
+  }
+  #main_doggo div#speech_bubble {
+    position: relative;
+    left: calc(100vw - 50vw);
+    top: 25px;
+  }
+  #main_doggo div#speech_bubble img {
+    position: absolute;
+    width: 30px;
+    display: block;
+    top: 96px;
+    left: 10px;
+    transform: rotate(-163deg);
+  }
+  #main_doggo div#speech_bubble p {
+    position: absolute;
+    left: 40px;
+    top: 68px;
+    margin-top: 0;
+    font-size: 36px;
+    transform: rotate(-15deg);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
