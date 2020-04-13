@@ -1,8 +1,8 @@
 @mixin for-phone {
-  @media (max-width: 750px) { @content; }
+  @media (max-width: 750px), (max-width: 2000px) and (max-height: 700px) { @content; }
 }
 @mixin for-desktop {
-  @media (min-width: 751px) { @content; }
+  @media (min-width: 751px) and (min-height: 701px) { @content; }
 }
 
 @mixin main-doggo-shape($top_distance, $right_offset, $height: 100%) {

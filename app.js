@@ -9,7 +9,10 @@ function isOutside() {
 }
 
 const makeSureTextIsVisible = () => {
-  if ((document.documentElement.clientWidth || window.innerWidth) <= 750) {
+  if (
+    (document.documentElement.clientWidth || window.innerWidth) <= 750 ||
+    (document.documentElement.clientHeight || window.innerHeight) < 700
+  ) {
     if (element.style.fontSize != "24px") element.style.fontSize = "24px";
     return;
   }
@@ -19,7 +22,7 @@ const makeSureTextIsVisible = () => {
     size += 2;
     element.style.fontSize = `${size}px`;
   }
-  while (isOutside()) {
+  while (isOutside() && size > 18) {
     size -= 2;
     element.style.fontSize = `${size}px`;
   }
