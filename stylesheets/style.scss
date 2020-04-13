@@ -68,8 +68,8 @@ body {
   #hanging_doggo {
     overflow: hidden;
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 300px; // measured by eye, sort of. Just don't want it covering the entire page
+    height: 375px; // and the doggo should be same size always
     top: 0;
     right: 0;
     img {
