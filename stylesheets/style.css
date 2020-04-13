@@ -102,7 +102,6 @@ body {
     position: relative;
     top: 0;
     left: 0;
-    width: 100%;
   }
   #contact_doggo img#short_doggo {
     transform: scaleX(-1) rotate(32deg);
@@ -196,7 +195,7 @@ body {
   }
 }
 @media (max-width: 750px) {
-  body {
+  html, body {
     overflow-x: hidden;
   }
 

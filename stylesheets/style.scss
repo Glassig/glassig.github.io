@@ -73,7 +73,7 @@ body {
 }
 
 @include for-phone {
-  body {
+  html, body {
     overflow-x: hidden;
   }
   $top_distance: 25px;
