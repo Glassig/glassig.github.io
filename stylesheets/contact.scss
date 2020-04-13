@@ -42,6 +42,13 @@
           background-color: lighten( $black, 20% );
         }
       }
+      &#pdf {
+        background-color: $teal;
+        font-size: 34px;
+        &:active, &:hover {
+          background-color: darken( $teal, 10% );
+        }
+      }
     }
   }
 }
@@ -95,7 +102,7 @@
       transform: rotate(-30deg);
     }
     #social_buttons {
-      left: calc(50vw - (270px / 2)); // margin
+      left: calc(50vw - (344px / 2)); // 4*62 + 8*12 = 344 (width, margins)
       top: 275px;
       display: flex;
       a.social {
