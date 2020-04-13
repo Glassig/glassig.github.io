@@ -6,9 +6,19 @@
 	"description": "A personal website for Angelina von Gegerfelt",
 	"display": "fullscreen",
 	"icons": [{
-		"src": "/images/favicon.ico",
+		"src": "/images/icons/favicon.ico",
 		"type": "image/x-icon",
 		"sizes": "16x16"
+	},
+	{
+		"src": "/images/icons/android-chrome-192x192.png",
+		"sizes": "192x192",
+		"type": "image/png"
+	},
+	{
+			"src": "/images/icons/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
 	}],
 	"dir": "ltr",
 	"lang": "en",
