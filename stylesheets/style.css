@@ -69,6 +69,13 @@ body {
 #contact_doggo #social_buttons a.social#github:active, #contact_doggo #social_buttons a.social#github:hover {
   background-color: #515c67;
 }
+#contact_doggo #social_buttons a.social#pdf {
+  background-color: #1CD0A5;
+  font-size: 34px;
+}
+#contact_doggo #social_buttons a.social#pdf:active, #contact_doggo #social_buttons a.social#pdf:hover {
+  background-color: #16a381;
+}
 
 @media (min-width: 751px) {
   #contact_doggo {
@@ -114,7 +121,7 @@ body {
     transform: rotate(-30deg);
   }
   #contact_doggo #social_buttons {
-    left: calc(50vw - (270px / 2));
+    left: calc(50vw - (344px / 2));
     top: 275px;
     display: flex;
   }
@@ -248,8 +255,8 @@ body {
   }
   #main_doggo div#speech_bubble p {
     position: absolute;
-    left: 40px;
-    top: 68px;
+    left: 16px;
+    top: 60px;
     margin-top: 0;
     font-size: 36px;
     transform: rotate(-15deg);
