@@ -2,7 +2,7 @@
 	"name": "Angelina von Gegerfelt's website",
 	"short_name": "Angelina",
 	"start_url": ".",
-	"background_color": "#f1f0f2",
+	"background_color": "#ffffff",
 	"description": "A personal website for Angelina von Gegerfelt",
 	"display": "fullscreen",
 	"icons": [{
@@ -22,5 +22,5 @@
 	}],
 	"dir": "ltr",
 	"lang": "en",
-	"theme_color": "#26a69a"
+	"theme_color": "#1CD0A5"
 }
