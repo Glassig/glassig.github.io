@@ -33,5 +33,9 @@ const debounceResize = () => {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(makeSureTextIsVisible, 250);
 };
-window.addEventListener("load", makeSureTextIsVisible);
+window.addEventListener("load", debounceResize);
 window.addEventListener("resize", debounceResize);
+
+const logSocial = (category) => {
+  ga('send', 'event', category, 'Clicked');
+}
