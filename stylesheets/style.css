@@ -2,7 +2,7 @@
   font-family: "Indie Flower";
   font-style: normal;
   font-weight: normal;
-  src: local("Indie Flower Regular"), url("IndieFlower-Regular.ttf") format("truetype");
+  src: local("Indie Flower Regular"), url("/stylesheets/IndieFlower-Regular.ttf") format("truetype");
 }
 body {
   font-family: "Indie Flower";
@@ -187,8 +187,15 @@ body {
   }
 
   #hanging_doggo {
+    overflow: hidden;
     position: absolute;
-    content: url("/images/short_doggo.svg");
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+  }
+  #hanging_doggo img {
+    position: absolute;
     top: -25px;
     right: -230px;
     transform: scaleX(-1) rotate(45deg);
@@ -246,6 +253,10 @@ body {
     margin-top: 0;
     font-size: 36px;
     transform: rotate(-15deg);
+  }
+
+  #hanging_doggo {
+    display: none;
   }
 }
 
