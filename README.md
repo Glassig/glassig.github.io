@@ -1,10 +1,17 @@
 # My personal website
-It's like my resumé in web-format. Written using NodeJS, ExpressJS, MetalsmithJS and markdown. 
-## Static v Dynamic
-So, for hosting's sake, this is a static version. Which means that I edit my dynamic version, starts a hosting for it, uses a command to download it and then modifies whatever broke. If you want to see the dynamic version, check out [it's repo](https://github.com/Glassig/website).
-## The command
-(Because I need help remembering it):
+There is no real use for this, other than I just want to have a cute personal website. 
 
-wget -mpck --user-agent="" -e robots=off --wait 1 -E WEBSITE_ADDRESS
+**Designed by**: me.
 
-WEBSITE_ADDRESS can be "localhost:3000"
+**Coded by**: me.
+
+**Doggo by**: me.
+
+![My card](https://github.com/Glassig/glassig.github.io/blob/master/images/card.png)
+
+## Dependencies
+To view it, nothing. But for development, run `npm i` for sass and concurrently, then install python for a simple http server.
+
+## Known issues
+* Landscape mode on mobiles is not the prettiest. The text is readable and it can be viewed, but the doggos ends are visible and the text overlaps the long doggo. I don't have the energy to fix it.
+* The "long doggo" on mobile could be longer, just in case of a wide screen. Between 750-645px, you can see the end. Just a slightly longer doggo would fix it. Maybe create a medium doggo?
