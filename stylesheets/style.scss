@@ -17,6 +17,8 @@ body {
   body {
     box-sizing: border-box;
     overflow: hidden;
+    width: 100%;
+    position: fixed;
   }
   $top_distance: 20vh;
   $right_offset: 50vw;
