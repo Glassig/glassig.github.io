@@ -37,5 +37,7 @@ window.addEventListener("load", debounceResize);
 window.addEventListener("resize", debounceResize);
 
 const logSocial = (category) => {
-  gtag('send', 'event', category, 'Clicked');
+  gtag("event", "Clicked", {
+    "event_category": category
+  });
 }
