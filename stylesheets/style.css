@@ -124,7 +124,7 @@ body {
     left: 64px;
     top: 78px;
   }
-  #contact_doggo p {
+  #contact_doggo p#email_printed {
     top: 357px;
     left: 148px;
   }
@@ -160,7 +160,7 @@ body {
     top: 44px;
     left: 116px;
   }
-  #contact_doggo p {
+  #contact_doggo p#email_printed {
     left: calc(50vw - (344px / 2) + 22px);
     top: 348px;
   }
