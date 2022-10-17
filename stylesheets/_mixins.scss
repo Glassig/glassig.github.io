@@ -1,8 +1,13 @@
+@use "sass:math";
 @mixin for-phone {
-  @media (max-width: 750px), (max-width: 2000px) and (max-height: 700px) { @content; }
+  @media (max-width: 750px), (max-width: 2000px) and (max-height: 700px) {
+    @content;
+  }
 }
 @mixin for-desktop {
-  @media (min-width: 751px) and (min-height: 701px) { @content; }
+  @media (min-width: 751px) and (min-height: 701px) {
+    @content;
+  }
 }
 
 @mixin main-doggo-shape($top_distance, $right_offset, $height: 100%) {
@@ -11,7 +16,7 @@
   $triangle_top_x: calc(#{$width} - #{$doggo_head_width});
   $triangle_bottom_width: calc((100vh - #{$dist_top_and_head}) / #{math.tan(62.64deg)});
   #main_doggo:before {
-    content: ' ';
+    content: " ";
     display: block;
     width: $width;
     height: #{$height};
