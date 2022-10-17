@@ -1,9 +1,11 @@
-#contact_doggo {
+
+  $social_width: 62px;
+  $social_height: 58px;
+  $social_margin: 12px;
+  #contact_doggo {
   img#short_doggo { // size width: 380px height: 572px
     position: absolute;
   }
-  $social_width: 62px;
-  $social_height: 58px;
   img.speech { // 47px x 47px
     position: absolute;
   }
@@ -13,7 +15,7 @@
     a.social {
       width: $social_width;
       height: $social_height;
-      margin: 12px;
+      margin: $social_margin;
       font-family: 'Indie Flower';
       font-size: 42px;
       color: white;
@@ -35,6 +37,15 @@
         &:active, &:hover {
           background-color: darken( $red, 10% );
         }
+        &:after {
+          content: '⯈';
+          position: absolute;
+          display: block;
+          color: $red;
+          font-size: 24px;
+          height: $social_width; //rotate seems to fuck with it
+          width: 30px;
+        }
       }
       &#github {
         background-color: $black;
@@ -51,6 +62,13 @@
       }
     }
   }
+  p {
+    display: block;
+    color: $black;
+    font-size: 18px;
+    width: 216px;
+    position: absolute;
+  }
 }
 @include for-desktop {
   #contact_doggo {
@@ -65,20 +83,26 @@
       left: -95px;
       transform: rotate(116deg);
     }
-    $social_width: 62px;
-    $social_height: 58px;
     img.speech { // 47px x 47px
       top: 225px;
       left: calc(#{$social_width} * 2 - 18px);
     }
     #social_buttons {
-      left: calc(#{$social_width} - 12px); // margin
+      left: calc(#{$social_width} - #{$social_margin});
       top: 275px;
       a.social {
         display: block;
         width: $social_width;
         height: $social_height;
+        &#email:after {
+          left: 64px;
+          top: 78px;
+        }
       }
+    }
+    p#email_printed {
+      top: 357px; // 275px + 82
+      left: 148px;
     }
   }
 }
@@ -94,22 +118,31 @@
       top: -80px;
       left: 50vw;
     }
-    $social_width: 62px;
-    $social_height: 58px;
     img.speech { // 47px x 47px
       top: 200px;
       left: calc(50vw - 35px);
       transform: rotate(-30deg);
     }
+    $all_socials_width: $social_width * 4 + $social_margin * 8;
     #social_buttons {
-      left: calc(50vw - (344px / 2)); // 4*62 + 8*12 = 344 (width, margins)
+      left: calc(50vw - (#{$all_socials_width} / 2)); // 4*62 + 8*12 = 344 (width, margins)
       top: 275px;
       display: flex;
       a.social {
         display: inline-block;
         width: $social_width;
         height: $social_height;
+
+        &#email:after {
+          transform: rotate(90deg);
+          top: 44px;
+          left: 116px;
+        }
       }
+    }
+    p#email_printed {
+      left: calc(50vw - (#{$all_socials_width} / 2) + 22px);
+      top: 348px; // 275px + 82
     }
   } 
 }
