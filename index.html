@@ -7,13 +7,15 @@
       src="https://www.googletagmanager.com/gtag/js?id=UA-120059035-1"
     ></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+      if (document.location.hostname.indexOf("localhost") == -1) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag("js", new Date());
+  
+        gtag("config", "UA-120059035-1");
       }
-      gtag("js", new Date());
-
-      gtag("config", "UA-120059035-1");
     </script>
 
     <meta charset="utf-8" />
@@ -104,6 +106,7 @@
         <a class="social" onclick="logSocial('Github')" id="github" href="https://github.com/Glassig">GH</a>
         <a class="social" onclick="logSocial('Pdf')" id="pdf" href="/Angelina_CV_Eng.pdf">Pdf</a>
       </div>
+      <p>angelina.v.gegerfelt@gmail.com</p>
     </div>
     <div id="hanging_doggo">
       <img src="/images/short_doggo.svg" alt="A short doggo hanging out">

@@ -35,6 +35,15 @@
         &:active, &:hover {
           background-color: darken( $red, 10% );
         }
+        &:after {
+          content: '⯈';
+          position: absolute;
+          display: block;
+          color: $red;
+          font-size: 24px;
+          height: $social_width; //rotate seems to fuck with it
+          width: 30px;
+        }
       }
       &#github {
         background-color: $black;
@@ -50,6 +59,13 @@
         }
       }
     }
+  }
+  p {
+    display: block;
+    color: $black;
+    font-size: 18px;
+    width: 216px;
+    position: absolute;
   }
 }
 @include for-desktop {
@@ -78,7 +94,15 @@
         display: block;
         width: $social_width;
         height: $social_height;
+        &#email:after {
+          left: 64px;
+          top: 78px;
+        }
       }
+    }
+    p {
+      top: 357px; // 275px + 82
+      left: 148px;
     }
   }
 }
@@ -109,7 +133,17 @@
         display: inline-block;
         width: $social_width;
         height: $social_height;
+
+        &#email:after {
+          transform: rotate(90deg);
+          top: 44px;
+          left: 116px;
+        }
       }
+    }
+    p {
+      left: calc(50vw - (344px / 2) + 22px); // 344px socials, bredd. 344-216=128, 128/2=64
+      top: 348px; // 275px + 82
     }
   } 
 }
