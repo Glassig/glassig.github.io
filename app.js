@@ -2,10 +2,7 @@ let element = document.getElementById("personal_letter");
 
 function isOutside() {
   let bounding = element.getBoundingClientRect();
-  return (
-    bounding.bottom >
-    (document.documentElement.clientHeight || window.innerHeight)
-  );
+  return bounding.bottom > (document.documentElement.clientHeight || window.innerHeight);
 }
 
 const makeSureTextIsVisible = () => {
@@ -38,6 +35,6 @@ window.addEventListener("resize", debounceResize);
 
 const logSocial = (category) => {
   gtag("event", "Clicked", {
-    "event_category": category
+    event_category: category,
   });
-}
+};
