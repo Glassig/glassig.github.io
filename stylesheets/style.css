@@ -14,19 +14,19 @@ body {
   margin: 0.75em 0 0.75em 20px;
 }
 #main_doggo p .pink {
-  color: #EA1F80;
+  color: #ea1f80;
 }
 #main_doggo p .blue {
-  color: #379AED;
+  color: #379aed;
 }
 #main_doggo p .teal {
-  color: #1CD0A5;
+  color: #1cd0a5;
 }
 #main_doggo p .red {
-  color: #E50712;
+  color: #e50712;
 }
 #main_doggo p .orange {
-  color: #FF9900;
+  color: #ff9900;
 }
 
 #contact_doggo img#short_doggo {
@@ -52,13 +52,13 @@ body {
   text-decoration: none;
 }
 #contact_doggo #social_buttons a.social#linkedin {
-  background-color: #379AED;
+  background-color: #379aed;
 }
 #contact_doggo #social_buttons a.social#linkedin:active, #contact_doggo #social_buttons a.social#linkedin:hover {
   background-color: #1481dd;
 }
 #contact_doggo #social_buttons a.social#email {
-  background-color: #E50712;
+  background-color: #e50712;
   line-height: 74px;
 }
 #contact_doggo #social_buttons a.social#email:active, #contact_doggo #social_buttons a.social#email:hover {
@@ -68,19 +68,19 @@ body {
   content: "⯈";
   position: absolute;
   display: block;
-  color: #E50712;
+  color: #e50712;
   font-size: 24px;
   height: 62px;
   width: 30px;
 }
 #contact_doggo #social_buttons a.social#github {
-  background-color: #24292E;
+  background-color: #24292e;
 }
 #contact_doggo #social_buttons a.social#github:active, #contact_doggo #social_buttons a.social#github:hover {
   background-color: #515c67;
 }
 #contact_doggo #social_buttons a.social#pdf {
-  background-color: #1CD0A5;
+  background-color: #1cd0a5;
   font-size: 34px;
 }
 #contact_doggo #social_buttons a.social#pdf:active, #contact_doggo #social_buttons a.social#pdf:hover {
@@ -88,7 +88,7 @@ body {
 }
 #contact_doggo p {
   display: block;
-  color: #24292E;
+  color: #24292e;
   font-size: 18px;
   width: 216px;
   position: absolute;
@@ -178,7 +178,6 @@ body {
     width: 100%;
     position: fixed;
   }
-
   #main_doggo:before {
     content: " ";
     display: block;
@@ -188,7 +187,6 @@ body {
     bottom: 0;
     shape-outside: polygon(0% 0%, 100% 0%, 100% calc(20vh + 155px), calc(calc(100vw - 50vw) - 95px) calc(20vh + 155px), calc(calc(calc(100vw - 50vw) - 95px) - calc((100vh - calc(20vh + 155px)) / 1.9324964493)) 100%, 0 100%);
   }
-
   #main_doggo {
     position: relative;
     width: 100%;
@@ -228,7 +226,6 @@ body {
     font-size: 36px;
     transform: rotate(-15deg);
   }
-
   #hanging_doggo {
     overflow: hidden;
     position: absolute;
@@ -248,7 +245,6 @@ body {
   html, body {
     overflow-x: hidden;
   }
-
   #main_doggo:before {
     content: " ";
     display: block;
@@ -258,7 +254,6 @@ body {
     bottom: 0;
     shape-outside: polygon(0% 0%, 100% 0%, 100% calc(25px + 155px), calc(calc(100vw - 50vw) - 95px) calc(25px + 155px), calc(calc(calc(100vw - 50vw) - 95px) - calc((100vh - calc(25px + 155px)) / 1.9324964493)) 100%, 0 100%);
   }
-
   #main_doggo {
     position: relative;
     width: 100%;
@@ -297,10 +292,7 @@ body {
     font-size: 36px;
     transform: rotate(-15deg);
   }
-
   #hanging_doggo {
     display: none;
   }
 }
-
-/*# sourceMappingURL=style.css.map */
