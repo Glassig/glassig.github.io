@@ -1,8 +1,8 @@
-@use 'sass:math';
-@import '_colors';
-@import '_mixins';
-@import 'text';
-@import 'contact';
+@use "sass:math";
+@import "_colors";
+@import "_mixins";
+@import "text";
+@import "contact";
 // @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 $doggo_head_height: 155px;
 $doggo_head_width: 95px;
@@ -33,6 +33,7 @@ body {
       content: url("/images/doggo.svg");
       right: #{$right_offset};
       top: $top_distance;
+      pointer-events: none;
     }
 
     div#personal_letter {
@@ -58,7 +59,7 @@ body {
         position: absolute;
         left: 40px;
         top: 68px;
-        margin-top:0;
+        margin-top: 0;
         font-size: 36px;
         transform: rotate(-15deg);
       }
@@ -82,7 +83,8 @@ body {
 }
 
 @include for-phone {
-  html, body {
+  html,
+  body {
     overflow-x: hidden;
   }
   $top_distance: 25px;
@@ -122,7 +124,7 @@ body {
         position: absolute;
         left: 16px;
         top: 60px;
-        margin-top:0;
+        margin-top: 0;
         font-size: 36px;
         transform: rotate(-15deg);
       }
@@ -132,4 +134,3 @@ body {
     display: none;
   }
 }
-

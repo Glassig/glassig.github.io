@@ -197,6 +197,7 @@ body {
     content: url("/images/doggo.svg");
     right: 50vw;
     top: 20vh;
+    pointer-events: none;
   }
   #main_doggo div#personal_letter {
     padding-top: calc(20vh + 155px);
@@ -242,7 +243,8 @@ body {
   }
 }
 @media (max-width: 750px), (max-width: 2000px) and (max-height: 700px) {
-  html, body {
+  html,
+body {
     overflow-x: hidden;
   }
   #main_doggo:before {
