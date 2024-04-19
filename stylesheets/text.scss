@@ -1,12 +1,12 @@
 @font-face {
-  font-family: "Indie Flower";
+  font-family: 'Hanno Regular';
   font-style: normal;
   font-weight: normal;
-  src: local("Indie Flower Regular"), url("/stylesheets/IndieFlower-Regular.ttf") format("truetype");
+  src: local('Hanno Regular'), url('/stylesheets/Hanno_Regular.ttf') format('truetype');
 }
 
 body {
-  font-family: 'Indie Flower';
+  font-family: 'Hanno Regular';
 }
 #main_doggo p {
   font-size: inherit;

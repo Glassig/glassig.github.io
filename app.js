@@ -15,7 +15,7 @@ const makeSureTextIsVisible = () => {
   }
   let originalSize = getComputedStyle(element).fontSize;
   let size = originalSize.match(/\d+/g).map(Number)[0];
-  while (!isOutside() && size < 32) {
+  while (!isOutside() && size < 26) {
     size += 2;
     element.style.fontSize = `${size}px`;
   }

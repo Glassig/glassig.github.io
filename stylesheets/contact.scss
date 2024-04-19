@@ -16,11 +16,11 @@
       width: $social_width;
       height: $social_height;
       margin: $social_margin;
-      font-family: 'Indie Flower';
-      font-size: 42px;
+      font-family: 'Hanno Regular';
+      font-size: 26px;
       color: white;
       text-align: center;
-      line-height: $social_height;
+      line-height: 62px;
       border-radius: 9px;
       border: none;
       text-decoration: none;
@@ -33,7 +33,7 @@
       }
       &#email {
         background-color: $red;
-        line-height: 74px;
+        font-size: 32px;
         &:active, &:hover {
           background-color: darken( $red, 10% );
         }
@@ -55,7 +55,7 @@
       }
       &#pdf {
         background-color: $teal;
-        font-size: 34px;
+        font-size: 24px;
         &:active, &:hover {
           background-color: darken( $teal, 10% );
         }
@@ -96,7 +96,7 @@
         height: $social_height;
         &#email:after {
           left: 64px;
-          top: 78px;
+          top: 82px;
         }
       }
     }
