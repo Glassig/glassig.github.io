@@ -36,6 +36,9 @@
         font-size: 32px;
         &:active, &:hover {
           background-color: color.adjust( $red, $lightness: -10% );
+          &:after {
+            color: color.adjust( $red, $lightness: -10% );
+          }
         }
         &:after {
           content: '\25BC';

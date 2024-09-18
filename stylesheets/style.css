@@ -64,6 +64,9 @@ body {
 #contact_doggo #social_buttons a.social#email:active, #contact_doggo #social_buttons a.social#email:hover {
   background-color: rgb(179.5127118644, 5.4872881356, 14.1101694915);
 }
+#contact_doggo #social_buttons a.social#email:active:after, #contact_doggo #social_buttons a.social#email:hover:after {
+  color: rgb(179.5127118644, 5.4872881356, 14.1101694915);
+}
 #contact_doggo #social_buttons a.social#email:after {
   content: "▼";
   rotate: -90deg;
