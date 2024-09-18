@@ -1,4 +1,4 @@
-
+@use 'sass:color';
   $social_width: 62px;
   $social_height: 58px;
   $social_margin: 12px;
@@ -28,17 +28,18 @@
       &#linkedin {
         background-color: $blue;
         &:active, &:hover {
-          background-color: darken( $blue, 10% );
+          background-color: color.adjust( $blue, $lightness: -10% );
         }
       }
       &#email {
         background-color: $red;
         font-size: 32px;
         &:active, &:hover {
-          background-color: darken( $red, 10% );
+          background-color: color.adjust( $red, $lightness: -10% );
         }
         &:after {
-          content: '⯈';
+          content: '\25BC';
+          rotate: -90deg;
           position: absolute;
           display: block;
           color: $red;
@@ -50,14 +51,14 @@
       &#github {
         background-color: $black;
         &:active, &:hover {
-          background-color: lighten( $black, 20% );
+          background-color: color.adjust( $black, $lightness: 20% );
         }
       }
       &#pdf {
         background-color: $teal;
         font-size: 24px;
         &:active, &:hover {
-          background-color: darken( $teal, 10% );
+          background-color: color.adjust( $teal, $lightness: -10% );
         }
       }
     }
@@ -101,7 +102,7 @@
       }
     }
     p#email_printed {
-      top: 357px; // 275px + 82
+      top: 359px; 
       left: 148px;
     }
   }
@@ -134,14 +135,14 @@
         height: $social_height;
 
         &#email:after {
-          transform: rotate(90deg);
+          rotate: 0deg;
           top: 44px;
-          left: 116px;
+          left: 115px;
         }
       }
     }
     p#email_printed {
-      left: calc(50vw - (#{$all_socials_width} / 2) + 22px);
+      left: calc(50vw - 141px);
       top: 348px; // 275px + 82
     }
   } 
